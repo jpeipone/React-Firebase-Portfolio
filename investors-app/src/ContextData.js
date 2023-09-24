@@ -5,6 +5,7 @@ const ContextData = ({ children }) => {
   const [readData, setReadData] = useState();
   const [userdata, setUserdata] = useState();
   const [logged, setLogged] = useState();
+  const [UIDinvestor, setUIDinvestor] = useState();
 
   return (
     <UserContext.Provider
@@ -15,6 +16,8 @@ const ContextData = ({ children }) => {
         setUserdata,
         logged,
         setLogged,
+        UIDinvestor,
+        setUIDinvestor,
       }}
     >
       {children}

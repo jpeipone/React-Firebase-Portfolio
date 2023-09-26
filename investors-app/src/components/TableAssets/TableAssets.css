@@ -1,0 +1,40 @@
+.table-assets-container {
+  align-items: center;
+}
+.asset-row {
+  padding: 1em;
+  display: flex;
+}
+
+.asset__name {
+  width: 200px;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.asset__price {
+  width: 100px;
+}
+
+.asset__profit {
+  width: 100px;
+}
+
+.asset__value {
+  width: 100px;
+}
+
+.asset__amount {
+  font-size: 1em;
+  width: 100px;
+}
+
+.asset__cost {
+  width: 100px;
+}
+
+.asset-delete__btn {
+  margin-left: 3em;
+  width: 50px;
+}

@@ -23,6 +23,7 @@ const AddInvestment = () => {
   //structure of new investment data
   const newInvestment = {
     name: "Apple",
+    price: 65,
     value: 444,
     amount: 7,
     cost: 60,

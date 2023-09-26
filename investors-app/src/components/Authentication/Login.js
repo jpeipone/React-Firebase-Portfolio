@@ -40,7 +40,7 @@ const Login = () => {
           const userMetaData = response?.user;
           const userUID = userMetaData?.uid;
           setUserUid(userUID);
-          setUserdata(userUID);
+          //  setUserdata(userUID);
           setUIDinvestor(userUID);
           console.log("userUID: ", userUID);
         }
@@ -57,7 +57,7 @@ const Login = () => {
           const userMetaData = response?.user;
           const userUID = userMetaData?.uid;
           setUserUid(userUID);
-          setUserdata(userUID);
+          //setUserdata(userUID);
           setUIDinvestor(userUID);
           console.log("userUID: ", userUID);
         }

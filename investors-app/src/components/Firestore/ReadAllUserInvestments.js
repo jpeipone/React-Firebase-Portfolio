@@ -15,39 +15,31 @@ const ReadAllUserInvestments = () => {
     setUIDinvestor,
   } = useContext(UserContext);
 
-  const handleReadInvestment = () => {
-    if (UIDinvestor != null) {
-      //Firestore location of investor investments based on uid
-      const investorInvestmentsCollectionRef = collection(
-        db,
-        "investors",
-        UIDinvestor,
-        "investments"
-      );
+  const HandleReadInvestment = async () => {
+    //Firestore location of investor investments based on uid
+    const investorInvestmentsCollectionRef = collection(
+      db,
+      "investors",
+      UIDinvestor,
+      "investments"
+    );
+    //query
+    const queryObject = query(investorInvestmentsCollectionRef);
 
-      //query
-      const queryObject = query(investorInvestmentsCollectionRef);
-      //retrieve data from firestore queryInvestmentsSnapshot
+    const queryInvestmentsSnapshot = await getDocs(queryObject);
 
-      const queryInvestorInvestmentsSnapshot = getDocs(queryObject).then(
-        (investment) => {
-          investment.forEach((doc) => {
-            const investmentDoc = doc?.data();
-            console.log(
-              "investment id: ",
-              doc?.id,
-              "investment: ",
-              investmentDoc
-            );
-          });
-        }
-      );
-    }
+    const resultInvestments = queryInvestmentsSnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+
+    setUserdata(resultInvestments);
+    console.log("%%%%%%%%", resultInvestments);
   };
 
   return (
     <div>
-      <button className="read-investments__btn" onClick={handleReadInvestment}>
+      <button className="read-investments__btn" onClick={HandleReadInvestment}>
         read investments
       </button>
     </div>

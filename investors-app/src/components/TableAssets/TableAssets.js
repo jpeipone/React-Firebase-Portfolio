@@ -21,35 +21,47 @@ const TableAssets = () => {
   };
 
   return (
-    <div className="table-assets-container">
-      <div className="asset-row">
-        <div className="asset__name">name</div>
-        <div className="asset__price">price</div>
-        <div className="asset__profit">profit</div>
-        <div className="asset__value">value</div>
-        <div className="asset__amount">amount</div>
-        <div className="asset__cost">cost</div>
-      </div>
-      {userdata
-        ? userdata.map((investment) => (
-            <div className="asset-row" key={investment?.id}>
-              <div className="asset__name">{investment?.name}</div>
-              <div className="asset__price">{investment?.price}</div>
-              <div className="asset__profit">
-                {(investment?.price * investment?.amount) / investment?.cost} %
+    <div>
+      <div className="table-assets-container">
+        <div className="table__header">Your Assets</div>
+        <div className="asset-row">
+          <div className="asset__name">name</div>
+          <div className="asset__price">price</div>
+          <div className="asset__profit">change</div>
+          <div className="asset__value">value</div>
+
+          <div className="asset__cost">cost</div>
+          <div className="asset__amount">amount</div>
+        </div>
+        {userdata
+          ? userdata.map((investment) => (
+              <div className="asset-row" key={investment?.id}>
+                <div className="asset__name">{investment?.name}</div>
+                <div className="asset__price">{investment?.price}</div>
+                <div
+                  className={
+                    investment?.price * investment?.amount - investment?.cost >=
+                    0
+                      ? "positive__profit"
+                      : "negative__profit"
+                  }
+                >
+                  {investment?.price * investment?.amount - investment?.cost}$
+                </div>
+                <div className="asset__value"> {investment?.value}</div>
+
+                <div className="asset__cost">{investment?.cost} </div>
+                <div className="asset__amount">{investment?.amount}</div>
+                <button
+                  className="asset-delete__btn"
+                  onClick={() => handleDeleteInvestment(investment?.id)}
+                >
+                  delete
+                </button>
               </div>
-              <div className="asset__value"> {investment?.value}</div>
-              <div className="asset__amount">{investment?.amount}</div>
-              <div className="asset__cost">{investment?.cost} </div>
-              <button
-                className="asset-delete__btn"
-                onClick={() => handleDeleteInvestment(investment?.id)}
-              >
-                delete
-              </button>
-            </div>
-          ))
-        : null}
+            ))
+          : null}
+      </div>
     </div>
   );
 };

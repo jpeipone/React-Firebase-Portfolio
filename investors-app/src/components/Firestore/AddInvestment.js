@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../ContextData";
 import { db } from "../../firebaseConfig";
 import { addDoc, collection, doc } from "firebase/firestore";
+import { SummaryUserInvestments } from "./update/SummaryUserInvestments";
 
 const AddInvestment = () => {
   const {
@@ -22,11 +23,11 @@ const AddInvestment = () => {
 
   //structure of new investment data
   const newInvestment = {
-    name: "Apple",
-    price: 65,
-    value: 444,
-    amount: 7,
-    cost: 60,
+    name: "Bitcoin",
+    price: 26000,
+    value: 7000,
+    amount: 0.5,
+    cost: 30000,
     date: "4.1.2022",
   };
 
@@ -45,6 +46,9 @@ const AddInvestment = () => {
       console.log("clicked");
     }
     //     investmentCollection.addDoc(newInvestment);
+    //testing update Summary
+    SummaryUserInvestments(UIDinvestor);
+    //testing ends
   };
 
   return (

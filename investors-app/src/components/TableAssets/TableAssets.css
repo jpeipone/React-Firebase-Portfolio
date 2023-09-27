@@ -1,15 +1,29 @@
 .table-assets-container {
-  align-items: center;
+  text-align: left;
+  margin-left: 1.5em;
+}
+
+.table__header {
+  color: black;
+  font-weight: bold;
+  font-size: 1.7em;
+  text-align: left;
+  margin-left: 0.5em;
 }
 .asset-row {
-  padding: 1em;
+  padding: 0.7em;
   display: flex;
+  border-bottom-style: solid;
+  border-bottom-color: lightgrey;
+  margin-right: 1.5em;
+  width: 1000px;
+  font-size: 1.3em;
 }
 
 .asset__name {
-  width: 200px;
+  width: 300px;
   color: black;
-  font-size: 1.5em;
+
   font-weight: bold;
 }
 
@@ -21,12 +35,23 @@
   width: 100px;
 }
 
+.positive__profit {
+  width: 100px;
+  color: green;
+  font-weight: bold;
+}
+
+.negative__profit {
+  width: 100px;
+  color: red;
+  font-weight: bold;
+}
+
 .asset__value {
   width: 100px;
 }
 
 .asset__amount {
-  font-size: 1em;
   width: 100px;
 }
 

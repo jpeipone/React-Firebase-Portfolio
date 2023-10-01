@@ -1,0 +1,67 @@
+.porfolio-header {
+  color: black;
+  font-weight: bold;
+  font-size: 1.7em;
+  text-align: left;
+  margin-left: 1.5em;
+}
+
+.summary-container {
+  background: white;
+  width: 48%;
+  height: 320px;
+  border-radius: 25px;
+  border: 5px solid black;
+  margin-left: 1em;
+  margin-right: 1em;
+  display: flex;
+}
+
+.yellowsun-img {
+  height: 300px;
+  width: 300px;
+}
+
+.portfolio-values {
+  color: black;
+
+  padding: 2em;
+}
+
+.porfolio-row {
+  display: flex;
+}
+
+.porfolio-column {
+  margin-right: 2em;
+}
+
+.portfolio__totavalue {
+  font-size: 2.5em;
+
+  margin-bottom: 15px;
+}
+
+.portfolio__invested {
+  font-size: 2.5em;
+}
+
+.portfolio__profit {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.porfolio__ROI__positive {
+  font-size: 2em;
+  color: green;
+}
+
+.porfolio__ROI__negative {
+  font-size: 2em;
+  color: red;
+}
+
+.value-row {
+  display: flex;
+  line-height: 1.9;
+}

@@ -27,10 +27,10 @@ const TableAssets = () => {
         <div className="asset-row">
           <div className="asset__name">name</div>
           <div className="asset__price">price</div>
-          <div className="asset__profit">change</div>
+          <div className="asset__profit">return</div>
           <div className="asset__value">value</div>
 
-          <div className="asset__cost">cost</div>
+          <div className="asset__cost">invested</div>
           <div className="asset__amount">amount</div>
         </div>
         {userdata

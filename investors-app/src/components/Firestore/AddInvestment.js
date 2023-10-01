@@ -47,7 +47,7 @@ const AddInvestment = () => {
     }
     //     investmentCollection.addDoc(newInvestment);
     //testing update Summary
-    SummaryUserInvestments(UIDinvestor);
+    SummaryUserInvestments(UIDinvestor, 1, 50, 89);
     //testing ends
   };
 

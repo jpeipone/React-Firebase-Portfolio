@@ -1,0 +1,11 @@
+.portfolio-assets-container {
+  background: white;
+  width: 700px;
+  height: 320px;
+  border-radius: 25px;
+  border: 5px solid black;
+  margin-left: 1em;
+  margin-right: 1em;
+  display: flex;
+  align-items: center;
+}

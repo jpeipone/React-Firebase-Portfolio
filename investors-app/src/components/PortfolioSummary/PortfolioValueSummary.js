@@ -40,7 +40,6 @@ const PortfolioValueSummary = () => {
   console.log("useEffect portfolio:", portfolioData);
   return (
     <div>
-      <div className="porfolio-header">Portfolio Summary </div>
       <div className="summary-container">
         <img className="yellowsun-img" src="./images/snowflakeBlue.svg" />
         <div className="portfolio-values">

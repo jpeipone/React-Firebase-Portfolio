@@ -1,0 +1,19 @@
+.portfolio-summaries {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.homepage__hd {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .portfolio-summaries {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -28,15 +28,10 @@ const PortfolioAssetsSummary = () => {
     ["profit", 2],
   ]);
 
-  /* const dataPie = [
-    ["asset", "amount"],
-    ["neutral", 0],
-    ["loss", 2],
-    ["test", 0],
-    ["profit", 2],
-  ]; */
-
-  const options = { pieHole: 0.5 };
+  const options = {
+    pieHole: 0.5,
+    legend: { position: "bottom" },
+  };
 
   useEffect(() => {
     if (portfolioUser != null) {
@@ -60,20 +55,21 @@ const PortfolioAssetsSummary = () => {
 
   return (
     <div className="portfolio-assets-container">
-      <Chart
-        chartType="PieChart"
-        data={pieData}
-        options={options}
-        width={"400px"}
-        height={"300px"}
-      />
       <div className="asset-column">
-        <div className="total__assets">
-          Assets in porfolio:{assetsSummary?.AssetsSum}
-        </div>
-        <div className="assets__profitable">
-          Assets profitable: {assetsSummary?.PositiveAssetsSum}
-        </div>
+        <div className="asset__hd">Assets in porfolio</div>
+        <div className="total__assets">{assetsSummary?.AssetsSum}</div>
+        <div className="asset__hd">Profitable assets</div>
+
+        <div className="total__assets">{assetsSummary?.PositiveAssetsSum}</div>
+      </div>
+      <div className="piechart-container">
+        <Chart
+          chartType="PieChart"
+          data={pieData}
+          options={options}
+          width={"300px"}
+          height={"300px"}
+        />
       </div>
     </div>
   );

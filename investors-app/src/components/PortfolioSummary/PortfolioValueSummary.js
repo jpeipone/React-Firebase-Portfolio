@@ -45,14 +45,14 @@ const PortfolioValueSummary = () => {
         <div className="portfolio-values">
           <div className="porfolio-row">
             <div className="porfolio-column">
-              <div className="totalvalue__hd">Total value:</div>
+              <div className="value__hd">Total value:</div>
 
               <div className="portfolio__totavalue">
                 {portfolioData?.TotalValue}$
               </div>
             </div>
             <div className="porfolio-column">
-              <div className="asset__hd">Total invested:</div>
+              <div className="value__hd">Total invested:</div>
 
               <div className="portfolio__invested">
                 {portfolioData?.TotalCost}$

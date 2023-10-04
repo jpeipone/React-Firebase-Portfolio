@@ -23,7 +23,6 @@ const TableAssets = () => {
   return (
     <div>
       <div className="table-assets-container">
-        <div className="table__header">Your Assets</div>
         <div className="asset-row">
           <div className="asset__name">name</div>
           <div className="asset__price">price</div>
@@ -56,7 +55,7 @@ const TableAssets = () => {
                   className="asset-delete__btn"
                   onClick={() => handleDeleteInvestment(investment?.id)}
                 >
-                  delete
+                  Delete
                 </button>
               </div>
             ))

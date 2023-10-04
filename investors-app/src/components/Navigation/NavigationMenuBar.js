@@ -10,7 +10,7 @@ const NavigationMenuBar = () => {
       </Link>
       <ul>
         <li className="menu-items">
-          <Link to="/add-new" className="navlink-item">
+          <Link to="/add" className="navlink-item">
             add new
           </Link>
         </li>

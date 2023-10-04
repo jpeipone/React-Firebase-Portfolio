@@ -3,8 +3,10 @@ nav {
   justify-content: space-between;
   background-color: white;
   align-items: center;
-  border-bottom: 3px solid lightgray;
+
   border-top: 3px solid lightgray;
+  border-bottom: 3px solid lightgray;
+  height: 45px;
 }
 
 nav .menu-logo {
@@ -12,7 +14,7 @@ nav .menu-logo {
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  margin: 1em;
+  margin: 0.8em;
 }
 
 nav ul {

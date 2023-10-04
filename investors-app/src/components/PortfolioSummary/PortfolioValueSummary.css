@@ -1,11 +1,11 @@
 .summary-container {
   background: white;
-  width: 600px;
+  width: 90%;
   height: 320px;
   border-radius: 25px;
-  border: 5px solid black;
-  margin-left: 1em;
-  margin-right: 1em;
+  border: 2px solid lightgray;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
 }
@@ -30,31 +30,35 @@
 }
 
 .portfolio__totavalue {
-  font-size: 2.5em;
+  font-size: 1.5rem;
 
   margin-bottom: 15px;
 }
 
 .portfolio__invested {
-  font-size: 2.5em;
+  font-size: 1.5rem;
 }
 
 .portfolio__profit {
-  font-size: 2.5em;
+  font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
 .porfolio__ROI__positive {
-  font-size: 2em;
+  font-size: 1.5rem;
   color: green;
 }
 
 .porfolio__ROI__negative {
-  font-size: 2em;
+  font-size: 1.5rem;
   color: red;
 }
 
 .value-row {
   display: flex;
   line-height: 1.9;
+}
+
+.value__hd {
+  font-size: 1rem;
 }

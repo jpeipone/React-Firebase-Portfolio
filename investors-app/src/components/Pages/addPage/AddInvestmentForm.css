@@ -1,0 +1,33 @@
+.add-form {
+  height: 800px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 45%;
+}
+
+.form-buttons {
+  display: flex;
+}
+
+.add-investment__btn {
+  background-color: #0b14e0;
+  border-color: #0b14e0;
+  color: white;
+  width: 200px;
+  height: 25px;
+  margin-top: 35px;
+}
+
+.reset-form__btn {
+  background-color: yellow;
+  border-color: yellow;
+  color: black;
+  width: 85px;
+  height: 25px;
+  margin-top: 35px;
+  margin-left: 20px;
+}

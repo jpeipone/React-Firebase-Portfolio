@@ -96,25 +96,27 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <label className="input__label">Email:</label>
-      <input
-        placeholder="Email"
-        name="Email"
-        type="username"
-        className="input-username"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label className="input__label">password:</label>
-      <input
-        placeholder="Password"
-        name="password"
-        type="password"
-        className="input-password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className="btn__login" onClick={handleSignin}>
-        sign in
-      </button>
+      <div className="login-column">
+        <label className="input__label">Email</label>
+        <input
+          placeholder="Email"
+          name="Email"
+          type="username"
+          className="input-username"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label className="input__label">Password</label>
+        <input
+          placeholder="Password"
+          name="Password"
+          type="Password"
+          className="input-password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="btn__login" onClick={handleSignin}>
+          sign in
+        </button>
+      </div>
       <button className="btn__register" onClick={handleRegisterUser}>
         register
       </button>

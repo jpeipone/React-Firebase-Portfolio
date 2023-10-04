@@ -1,11 +1,43 @@
 .portfolio-assets-container {
   background: white;
-  width: 700px;
+  width: 560px;
   height: 320px;
   border-radius: 25px;
-  border: 5px solid black;
-  margin-left: 1em;
-  margin-right: 1em;
+  border: 2px solid lightgray;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
+}
+
+.asset-column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+  line-height: 1.9;
+}
+
+.assets__hd {
+  font-size: 1rem;
+}
+
+.total__assets {
+  font-size: 1.5rem;
+}
+
+.piechart-container {
+  width: 400px;
+  height: 300px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .portfolio-assets-container {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .portfolio-assets-container {
+    width: 90%;
+  }
 }

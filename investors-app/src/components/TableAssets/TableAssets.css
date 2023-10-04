@@ -1,15 +1,10 @@
 .table-assets-container {
   text-align: left;
-  margin-left: 1.5em;
+  margin-left: 1.5rem;
+  background-color: white;
+  margin-top: 1rem;
 }
 
-.table__header {
-  color: black;
-  font-weight: bold;
-  font-size: 1.7em;
-  text-align: left;
-  margin-left: 0.5em;
-}
 .asset-row {
   padding: 0.7em;
   display: flex;
@@ -62,4 +57,7 @@
 .asset-delete__btn {
   margin-left: 3em;
   width: 50px;
+  background-color: red;
+  border-color: red;
+  color: white;
 }

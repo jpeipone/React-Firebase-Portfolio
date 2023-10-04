@@ -1,7 +1,4 @@
 .App {
   font-family: Helvetica, sans-serif, Arial;
-}
-
-.porfolio-summaries {
-  display: flex;
+  background-color: #f8f8f8;
 }

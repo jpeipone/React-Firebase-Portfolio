@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../ContextData";
 import "./AddInvestmentForm.css";
+import AddNewInvestment from "../../Firestore/create/AddNewInvestment";
 
 const AddInvestmentForm = () => {
+  const { UIDinvestor } = useContext(UserContext);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
@@ -13,6 +16,16 @@ const AddInvestmentForm = () => {
   const handleAddInvestment = () => {
     console.log("add new investment clicked");
     console.log("name:", name);
+    AddNewInvestment(
+      UIDinvestor,
+      name,
+      amount,
+      price,
+      cost,
+      value,
+      boughtDate,
+      winLossNeutral
+    );
     alert(name);
   };
 
@@ -28,7 +41,7 @@ const AddInvestmentForm = () => {
 
   return (
     <div className="add-form">
-      <form className="form-container" onSubmit={handleAddInvestment}>
+      <div className="form-container">
         <h2> Add new investment</h2>
         <label className="input__label">Name</label>
         <input
@@ -70,14 +83,14 @@ const AddInvestmentForm = () => {
           onChange={(e) => setBoughtDate(e.target.value)}
         />
         <div className="form-buttons">
-          <button className="add-investment__btn" type="submit">
+          <button className="add-investment__btn" onClick={handleAddInvestment}>
             Add
           </button>
           <button className="reset-form__btn" onClick={handleResetForm}>
             Reset
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

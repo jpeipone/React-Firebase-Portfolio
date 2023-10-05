@@ -41,7 +41,11 @@ const PortfolioValueSummary = () => {
   return (
     <div>
       <div className="summary-container">
-        <img className="yellowsun-img" src="./images/snowflakeBlue.svg" />
+        {portfolioData?.TotalValue - portfolioData?.TotalCost > 0 ? (
+          <img className="yellowsun-img" src="./images/YellowSun.svg" />
+        ) : (
+          <img className="yellowsun-img" src="./images/snowflakeBlue.svg" />
+        )}
         <div className="portfolio-values">
           <div className="porfolio-row">
             <div className="porfolio-column">

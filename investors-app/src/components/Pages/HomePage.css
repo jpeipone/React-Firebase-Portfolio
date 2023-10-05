@@ -11,7 +11,7 @@
   margin-top: 1rem;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1400px) {
   .portfolio-summaries {
     display: flex;
     flex-direction: column;

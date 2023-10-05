@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </Router>
-      <Login />
+      {/* <Login /> */}
       <AddInvestment />
       <ReadAllUserInvestments />
     </div>

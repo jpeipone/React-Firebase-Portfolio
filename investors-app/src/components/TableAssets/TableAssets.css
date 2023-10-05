@@ -1,6 +1,7 @@
 .table-assets-container {
   text-align: left;
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
   background-color: white;
   margin-top: 1rem;
 }
@@ -8,11 +9,16 @@
 .asset-row {
   padding: 0.7em;
   display: flex;
+  align-items: center;
   border-bottom-style: solid;
   border-bottom-color: lightgrey;
   margin-right: 1.5em;
-  width: 95%;
+  width: 1200px;
   font-size: 1.3em;
+}
+
+.asset__hd {
+  width: 350px;
 }
 
 .asset__name {
@@ -22,8 +28,12 @@
   font-weight: bold;
 }
 
+.weather-img {
+  width: 50px;
+}
+
 .asset__price {
-  width: 100px;
+  width: 150px;
 }
 
 .asset__profit {
@@ -43,21 +53,84 @@
 }
 
 .asset__value {
-  width: 100px;
+  width: 150px;
 }
 
 .asset__amount {
-  width: 100px;
+  width: 150px;
 }
 
 .asset__cost {
   width: 100px;
 }
 
-.asset-delete__btn {
-  margin-left: 3em;
+.asset-edit__btn {
+  margin-left: 10px;
   width: 50px;
-  background-color: red;
-  border-color: red;
+  height: 40px;
+  background-color: #0b14e0;
+  border-radius: 25%;
+  border: none;
   color: white;
+  font-weight: bold;
+}
+
+.asset-delete__btn {
+  margin-left: 10px;
+  width: 50px;
+  height: 40px;
+  background-color: red;
+  border-radius: 25%;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1300px) {
+  .asset-row {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  .asset__hd {
+    width: 140px;
+  }
+
+  .asset__name {
+    width: 110px;
+    color: black;
+
+    font-weight: bold;
+  }
+
+  .weather-img {
+    width: 35px;
+  }
+
+  .asset__price {
+    width: 70px;
+  }
+
+  .asset__profit {
+    width: 70px;
+  }
+  .positive__profit {
+    width: 70px;
+  }
+
+  .negative__profit {
+    width: 70px;
+  }
+
+  .asset__value {
+    width: 70px;
+  }
+
+  .asset__amount {
+    width: 70px;
+  }
+
+  .asset__cost {
+    width: 70px;
+  }
 }

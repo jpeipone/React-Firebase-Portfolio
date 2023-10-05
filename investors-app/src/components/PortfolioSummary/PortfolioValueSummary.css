@@ -1,6 +1,6 @@
 .summary-container {
   background: white;
-  width: 90%;
+  width: 650px;
   height: 320px;
   border-radius: 25px;
   border: 2px solid lightgray;
@@ -61,4 +61,10 @@
 
 .value__hd {
   font-size: 1rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  .summary-container {
+    width: 95%;
+  }
 }

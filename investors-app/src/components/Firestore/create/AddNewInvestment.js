@@ -8,12 +8,13 @@ const AddNewInvestment = async (
   amount,
   price,
   cost,
-  value,
-  boughtDate,
-  winLossNeutral
+  cashInvested,
+  boughtDate
 ) => {
   //Firestore investors collection reference
   const investorCollectionRef = collection(db, "investors");
+
+  const tempValue = Number(parseFloat((amount * price).toFixed(2)));
 
   //structure of new investment data
   const newInvestment = {
@@ -21,6 +22,9 @@ const AddNewInvestment = async (
     price: price,
     amount: amount,
     cost: cost,
+    cashInvested: cashInvested,
+    boughtDate: boughtDate,
+    value: tempValue,
   };
 
   //investor own document
@@ -36,10 +40,10 @@ const AddNewInvestment = async (
   await addDoc(investorInvestmentsCollection, newInvestment);
   console.log("add new doc");
 
-  //     investmentCollection.addDoc(newInvestment);
-  //testing update Summary
-  //  SummaryUserInvestments(UIDinvestor, 1, 50, 89);
-  //testing ends
+  // update portfolio Summary
+  const assetSum = 1;
+  const value = tempValue;
+  SummaryUserInvestments(UIDinvestor, 1, cashInvested, value);
 };
 
 export default AddNewInvestment;

@@ -29,7 +29,6 @@ const TableAssets = () => {
           <div className="asset__profit">return</div>
           <div className="asset__value">value</div>
 
-          <div className="asset__cost">invested</div>
           <div className="asset__amount">amount</div>
         </div>
         {userdata
@@ -39,17 +38,15 @@ const TableAssets = () => {
                 <div className="asset__price">{investment?.price}</div>
                 <div
                   className={
-                    investment?.price * investment?.amount - investment?.cost >=
-                    0
+                    investment?.price - investment?.cost >= 0
                       ? "positive__profit"
                       : "negative__profit"
                   }
                 >
-                  {investment?.price * investment?.amount - investment?.cost}$
+                  {investment?.value - investment?.cashInvested}
                 </div>
                 <div className="asset__value"> {investment?.value}</div>
 
-                <div className="asset__cost">{investment?.cost} </div>
                 <div className="asset__amount">{investment?.amount}</div>
                 <button
                   className="asset-delete__btn"

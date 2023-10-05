@@ -9,24 +9,23 @@ const AddInvestmentForm = () => {
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
   const [cost, setCost] = useState("");
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(0.0);
   const [boughtDate, setBoughtDate] = useState("");
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
+  const [cashInvested, setCashInvested] = useState("");
 
   const handleAddInvestment = () => {
-    console.log("add new investment clicked");
-    console.log("name:", name);
+    //  const tempValue = Number(parseFloat((amount * price).toFixed(2)));
+
     AddNewInvestment(
       UIDinvestor,
       name,
       amount,
       price,
       cost,
-      value,
-      boughtDate,
-      winLossNeutral
+      cashInvested,
+      boughtDate
     );
-    alert(name);
   };
 
   const handleResetForm = () => {
@@ -37,6 +36,7 @@ const AddInvestmentForm = () => {
     setValue(null);
     setBoughtDate(null);
     setWinLossNeutral(null);
+    setCashInvested(null);
   };
 
   return (
@@ -67,13 +67,21 @@ const AddInvestmentForm = () => {
           className="input__investment"
           onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
-        <label className="input__label">Bought at price</label>
+        <label className="input__label">price of buy</label>
         <input
           placeholder="cost"
           type="number"
           step="0.1"
           className="input__investment"
           onChange={(e) => setCost(parseFloat(e.target.value))}
+        />
+        <label className="input__label">cash invested</label>
+        <input
+          placeholder="cash invested"
+          type="number"
+          step="0.1"
+          className="input__investment"
+          onChange={(e) => setCashInvested(parseFloat(e.target.value))}
         />
         <label className="input__label">Date when bought</label>
         <input

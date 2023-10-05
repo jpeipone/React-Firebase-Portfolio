@@ -27,17 +27,17 @@
 }
 
 .asset__profit {
-  width: 100px;
+  width: 150px;
 }
 
 .positive__profit {
-  width: 100px;
+  width: 150px;
   color: green;
   font-weight: bold;
 }
 
 .negative__profit {
-  width: 100px;
+  width: 150px;
   color: red;
   font-weight: bold;
 }

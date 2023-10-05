@@ -5,7 +5,7 @@ import { setDoc, doc, increment } from "firebase/firestore";
 export const SummaryUserInvestments = async (
   UIDinvestor,
   assetSum,
-  cost,
+  cashInvested,
   value
 ) => {
   //reference summary collection
@@ -21,7 +21,7 @@ export const SummaryUserInvestments = async (
     AssetsSum: increment(assetSum),
     NegativeAssetsSum: 8,
     PositiveAssetsSum: 3,
-    TotalCost: increment(cost),
+    TotalCost: increment(cashInvested),
     TotalValue: increment(value),
   };
 

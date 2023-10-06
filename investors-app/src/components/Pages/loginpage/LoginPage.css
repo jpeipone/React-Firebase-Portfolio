@@ -1,5 +1,5 @@
 .login-page {
-  height: 700px;
+  height: 900px;
   width: 100%;
 }
 
@@ -15,12 +15,25 @@
 }
 
 .create-account__text {
+  margin-top: 40px;
   color: #0b14e0;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .signOut-user__btn {
   background-color: white;
   color: black;
+  width: 300px;
+  height: 25px;
+}
+
+.delete-account-btn {
+  background-color: red;
+  color: white;
+
+  border: none;
+  margin-top: 40px;
   width: 300px;
   height: 25px;
 }

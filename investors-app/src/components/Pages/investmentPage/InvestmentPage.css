@@ -1,28 +1,55 @@
 .container-data {
   background-color: white;
+  margin: 2rem;
 }
 
-.name-price {
+.name-return__row {
+  margin: 25px;
   display: flex;
-  padding: 1rem;
-  align-items: center;
 }
 
-.name-price__data {
+.name-hd__data {
   width: 200px;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+
+.positive__return {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  color: green;
+}
+.negative__return {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  color: red;
+}
+
+.roi__return {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-left: 3rem;
 }
 
 .image-data-container {
   display: flex;
 }
 
-.image-invested {
-  width: 200px;
+.image-investment {
+  margin-top: 10px;
 }
+
 .w-img {
-  width: 150px;
+  width: 300px;
+  margin-right: 100px;
+  margin-left: 50px;
 }
 
 .investment-wrapper {
@@ -31,11 +58,12 @@
 }
 
 .investment__label {
-  width: 200px;
+  width: 400px;
   font-size: 1rem;
 }
 
 .investment__data {
   font-size: 1.2rem;
+  width: 200px;
   font-weight: bold;
 }

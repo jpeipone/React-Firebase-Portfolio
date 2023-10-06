@@ -50,7 +50,7 @@ const Login = () => {
     }
   };
 
-  const handleRegisterUser = async () => {
+  /*   const handleRegisterUser = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (response) => {
@@ -65,9 +65,9 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
 
-  const handleSignOut = async () => {
+  /* const handleSignOut = async () => {
     try {
       await signOut(auth);
       setUserUid(null);
@@ -78,9 +78,9 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
 
-  const handleDeleteUser = async () => {
+  /*   const handleDeleteUser = async () => {
     const userDelete = auth?.currentUser;
 
     try {
@@ -92,7 +92,7 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
 
   return (
     <div className="login-container">
@@ -117,15 +117,15 @@ const Login = () => {
           sign in
         </button>
       </div>
-      <button className="btn__register" onClick={handleRegisterUser}>
+      {/*  <button className="btn__register" onClick={handleRegisterUser}>
         register
-      </button>
-      <button className="btn__signout" onClick={handleSignOut}>
+      </button> */}
+      {/*  <button className="btn__signout" onClick={handleSignOut}>
         sign out
-      </button>
-      <button className="btn__delete" onClick={handleDeleteUser}>
+      </button> */}
+      {/* <button className="btn__delete" onClick={handleDeleteUser}>
         delete user
-      </button>
+      </button> */}
     </div>
   );
 };

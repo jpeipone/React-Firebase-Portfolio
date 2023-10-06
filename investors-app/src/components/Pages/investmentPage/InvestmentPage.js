@@ -1,7 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
 import "./InvestmentPage.css";
+import { DeleteInvestmentDoc } from "../../Firestore/delete/DeleteInvestmentDoc";
+import { SummaryDeleteInvestment } from "../../Firestore/update/SummaryDeleteInvestment";
 
 const InvestmentPage = () => {
   //Context
@@ -19,6 +21,17 @@ const InvestmentPage = () => {
 
   const findInvestment = userdata.find((element) => element.id === id);
   console.log("found investment edit: ", findInvestment);
+
+  const handleEditInvestment = (id) => {
+    console.log("edit clicked");
+  };
+
+  const handleDeleteInvestment = (id, value, cashInvested) => {
+    DeleteInvestmentDoc(UIDinvestor, id);
+
+    SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+  };
+
   return (
     <div className="investment-page">
       <div className="container-data">
@@ -68,7 +81,7 @@ const InvestmentPage = () => {
           <div className="data-colum">
             <div className="investment-wrapper">
               <label className="investment__label">Value:</label>
-              <div className="investment__data">{findInvestment?.value}</div>
+              <div className="investment__data">{findInvestment?.value}$</div>
             </div>
             <div className="investment-wrapper">
               <label className="investment__label">Amount:</label>
@@ -76,18 +89,18 @@ const InvestmentPage = () => {
             </div>
             <div className="investment-wrapper">
               <label className="investment__label">Price:</label>
-              <div className="investment__data">{findInvestment?.price}</div>
+              <div className="investment__data">{findInvestment?.price}$</div>
             </div>
             <div className="investment-wrapper">
               <label className="investment__label">Cash invested:</label>
               <div className="investment__data">
-                {findInvestment?.cashInvested}
+                {findInvestment?.cashInvested}$
               </div>
             </div>
 
             <div className="investment-wrapper">
               <label className="investment__label">Price of purchase:</label>
-              <div className="investment__data">{findInvestment?.cost}</div>
+              <div className="investment__data">{findInvestment?.cost}$</div>
             </div>
             <div className="investment-wrapper">
               <label className="investment__label">Date of purchase:</label>
@@ -96,6 +109,26 @@ const InvestmentPage = () => {
                 {findInvestment?.boughtDate}
               </div>
             </div>
+            <Link to={`/edit/investment/${findInvestment?.id}`}>
+              <button
+                className="investment-edit__btn"
+                onClick={() => handleEditInvestment(findInvestment?.id)}
+              >
+                Edit
+              </button>
+            </Link>
+            <button
+              className="investment-delete__btn"
+              onClick={() =>
+                handleDeleteInvestment(
+                  findInvestment?.id,
+                  findInvestment?.value,
+                  findInvestment?.cashInvested
+                )
+              }
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>

@@ -1,0 +1,41 @@
+.container-data {
+  background-color: white;
+}
+
+.name-price {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+}
+
+.name-price__data {
+  width: 200px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.image-data-container {
+  display: flex;
+}
+
+.image-invested {
+  width: 200px;
+}
+.w-img {
+  width: 150px;
+}
+
+.investment-wrapper {
+  display: flex;
+  padding: 1rem;
+}
+
+.investment__label {
+  width: 200px;
+  font-size: 1rem;
+}
+
+.investment__data {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../ContextData";
 import "./TableAssets.css";
 import { DeleteInvestmentDoc } from "../Firestore/delete/DeleteInvestmentDoc";
@@ -39,39 +40,54 @@ const TableAssets = () => {
         {userdata
           ? userdata.map((investment) => (
               <div className="asset-row" key={investment?.id}>
-                {investment?.value - investment?.cashInvested > 0 ? (
-                  <img className="weather-img" src="./images/YellowSun.svg" />
-                ) : (
-                  <img
-                    className="weather-img"
-                    src="./images/snowflakeBlue.svg"
-                  />
-                )}
-                <div className="asset__name">{investment?.name}</div>
-
-                <div className="asset__price">{investment?.price}</div>
-                <div
-                  className={
-                    investment?.value - investment?.cashInvested >= 0
-                      ? "positive__profit"
-                      : "negative__profit"
-                  }
-                >
-                  {Number(
-                    parseFloat(
-                      (investment?.value - investment?.cashInvested).toFixed(2)
-                    )
+                <Link to={`/show/investment/${investment?.id}`}>
+                  {investment?.value - investment?.cashInvested > 0 ? (
+                    <img className="weather-img" src="./images/YellowSun.svg" />
+                  ) : (
+                    <img
+                      className="weather-img"
+                      src="./images/snowflakeBlue.svg"
+                    />
                   )}
-                </div>
-                <div className="asset__value"> {investment?.value}</div>
+                </Link>
+                <Link to={`/show/investment/${investment?.id}`}>
+                  <div className="asset__name">{investment?.name}</div>
+                </Link>
+                <Link to={`/show/investment/${investment?.id}`}>
+                  <div className="asset__price">{investment?.price}</div>
+                </Link>
+                <Link to={`/show/investment/${investment?.id}`}>
+                  <div
+                    className={
+                      investment?.value - investment?.cashInvested >= 0
+                        ? "positive__profit"
+                        : "negative__profit"
+                    }
+                  >
+                    {Number(
+                      parseFloat(
+                        (investment?.value - investment?.cashInvested).toFixed(
+                          2
+                        )
+                      )
+                    )}
+                  </div>
+                </Link>
+                <Link to={`/show/investment/${investment?.id}`}>
+                  <div className="asset__value"> {investment?.value}</div>
+                </Link>
+                <Link to={`/show/investment/${investment?.id}`}>
+                  <div className="asset__amount">{investment?.amount}</div>
+                </Link>
+                <Link to={`/edit/investment/${investment?.id}`}>
+                  <button
+                    className="asset-edit__btn"
+                    onClick={() => handleEditInvestment(investment?.id)}
+                  >
+                    Edit
+                  </button>
+                </Link>
 
-                <div className="asset__amount">{investment?.amount}</div>
-                <button
-                  className="asset-edit__btn"
-                  onClick={() => handleEditInvestment(investment?.id)}
-                >
-                  Edit
-                </button>
                 <button
                   className="asset-delete__btn"
                   onClick={() =>

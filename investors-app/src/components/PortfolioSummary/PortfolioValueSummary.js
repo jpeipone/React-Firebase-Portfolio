@@ -66,7 +66,14 @@ const PortfolioValueSummary = () => {
 
           <div className="value__hd">Total returns:</div>
           <div className="portfolio__profit">
-            {portfolioData?.TotalValue - portfolioData?.TotalCost}$
+            {Number(
+              parseFloat(
+                (portfolioData?.TotalValue - portfolioData?.TotalCost).toFixed(
+                  2
+                )
+              )
+            )}
+            $
           </div>
 
           <div className="value__hd">Total ROI:</div>

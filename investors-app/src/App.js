@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </Router>
       {/* <Login /> */}
-      <AddInvestment />
+      {/* <AddInvestment /> */}
       <ReadAllUserInvestments />
     </div>
   );

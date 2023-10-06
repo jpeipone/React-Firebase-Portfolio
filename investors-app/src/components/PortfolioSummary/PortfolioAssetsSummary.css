@@ -1,6 +1,6 @@
 .portfolio-assets-container {
   background: white;
-  width: 95%;
+  width: 750px;
   height: 320px;
   border-radius: 25px;
   border: 2px solid lightgray;
@@ -15,6 +15,7 @@
   flex-direction: column;
   margin-left: 1.5rem;
   line-height: 1.9;
+  width: 200px;
 }
 
 .assets__hd {
@@ -23,4 +24,10 @@
 
 .total__assets {
   font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 1400px) {
+  .portfolio-assets-container {
+    width: 95%;
+  }
 }

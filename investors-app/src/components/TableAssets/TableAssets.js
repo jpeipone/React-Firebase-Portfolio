@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../ContextData";
 import "./TableAssets.css";
 import { DeleteInvestmentDoc } from "../Firestore/delete/DeleteInvestmentDoc";
+import { SummaryDeleteInvestment } from "../Firestore/update/SummaryDeleteInvestment";
 
 const TableAssets = () => {
   const {
@@ -15,9 +16,9 @@ const TableAssets = () => {
     setUIDinvestor,
   } = useContext(UserContext);
 
-  const handleDeleteInvestment = (id) => {
-    console.log("clicked delete btn: ", id);
+  const handleDeleteInvestment = (id, value, cashInvested) => {
     DeleteInvestmentDoc(UIDinvestor, id);
+    SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
   };
 
   const handleEditInvestment = (id) => {
@@ -56,7 +57,11 @@ const TableAssets = () => {
                       : "negative__profit"
                   }
                 >
-                  {investment?.value - investment?.cashInvested}
+                  {Number(
+                    parseFloat(
+                      (investment?.value - investment?.cashInvested).toFixed(2)
+                    )
+                  )}
                 </div>
                 <div className="asset__value"> {investment?.value}</div>
 
@@ -69,7 +74,13 @@ const TableAssets = () => {
                 </button>
                 <button
                   className="asset-delete__btn"
-                  onClick={() => handleDeleteInvestment(investment?.id)}
+                  onClick={() =>
+                    handleDeleteInvestment(
+                      investment?.id,
+                      investment?.value,
+                      investment?.cashInvested
+                    )
+                  }
                 >
                   Delete
                 </button>

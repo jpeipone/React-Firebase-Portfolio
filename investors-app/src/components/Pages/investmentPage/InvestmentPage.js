@@ -28,7 +28,15 @@ const InvestmentPage = () => {
         </div>
         <div className="image-data-container">
           <div className="image-investment">
-            <img className="w-img" src="./images/sun.svg" alt="sun" />
+            {findInvestment?.value - findInvestment?.cashInvested > 0 ? (
+              <img className="w-img" src="/images/YellowSun.svg" alt="sun" />
+            ) : (
+              <img
+                className="w-img"
+                src="/images/SnowFlakeBlue.svg"
+                alt="sun"
+              />
+            )}
           </div>
           <div className="data-colum">
             <div className="investment-wrapper">

@@ -26,11 +26,11 @@ const LoginPage = () => {
 
   const handleLogOut = () => {
     console.log("clicked sign out button");
-    SignOutUser();
+    SignOutUser(logged, setLogged);
   };
 
   const handleDeleteUserAccount = () => {
-    DeleteUserAccount();
+    DeleteUserAccount(logged, setLogged);
     alert("Account was deleted from database");
   };
 
@@ -46,7 +46,7 @@ const LoginPage = () => {
           <div className="login__header">Welcome back!</div>
         ) : null}
         {showRegister === false ? <Login /> : null}
-        {showRegister === false ? (
+        {showRegister === false && logged === true ? (
           <button className="signOut-user__btn" onClick={handleLogOut}>
             log out
           </button>
@@ -65,12 +65,14 @@ const LoginPage = () => {
             Log in to new account, click here
           </div>
         ) : null}
-        <button
-          className="delete-account-btn"
-          onClick={handleDeleteUserAccount}
-        >
-          Delete account
-        </button>
+        {logged === true && (
+          <button
+            className="delete-account-btn"
+            onClick={handleDeleteUserAccount}
+          >
+            Delete account
+          </button>
+        )}
       </div>
     </div>
   );

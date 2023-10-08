@@ -20,6 +20,7 @@ export const ReadUserPorfolio = async (
     "summary",
     "summaryInvestments"
   );
+
   try {
     const queryPortfolioSnapshot = await getDoc(investorPorfolioRef);
 

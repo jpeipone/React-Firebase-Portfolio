@@ -21,8 +21,12 @@ const PortfolioValueSummary = () => {
 
   const [portfolioData, setPortfolioData] = useState();
   const [totalROI, setTotalROI] = useState(0);
+
   const handleGetPortfolio = (UIDinvestor) => {
     console.log("clicked porfolio btn");
+    if (UIDinvestor === null) {
+      return;
+    }
     ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
     console.log("porfolio of user", portfolioUser);
   };
@@ -36,6 +40,12 @@ const PortfolioValueSummary = () => {
       setTotalROI(roundedROI);
     }
   }, [portfolioUser]);
+
+  useEffect(() => {
+    if (logged === true) {
+      ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
+    }
+  }, [portfolioUser, logged, userdata]);
 
   console.log("useEffect portfolio:", portfolioData);
   return (

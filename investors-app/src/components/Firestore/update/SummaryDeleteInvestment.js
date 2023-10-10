@@ -35,5 +35,9 @@ export const SummaryDeleteInvestment = async (
     TotalValue: increment(negativeValue),
   };
 
-  await setDoc(userSummaryRef, summaryInvesments, { merge: true });
+  try {
+    await setDoc(userSummaryRef, summaryInvesments, { merge: true });
+  } catch (error) {
+    console.error(error);
+  }
 };

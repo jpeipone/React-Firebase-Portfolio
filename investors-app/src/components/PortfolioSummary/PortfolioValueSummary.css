@@ -68,3 +68,18 @@
     width: 95%;
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .yellowsun-img {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .summary-container {
+    flex-direction: column;
+    margin-left: 0.5rem;
+    height: 400px;
+  }
+}

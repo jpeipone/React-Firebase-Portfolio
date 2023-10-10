@@ -10,6 +10,8 @@ import {
 } from "firebase/auth";
 import { app } from "../../firebaseConfig";
 import "./Login.css";
+import { ReadUserInvestments } from "../Firestore/read/ReadUserInvestments";
+import { ReadUserPorfolio } from "../Firestore/read/ReadUserPorfolio";
 
 const Login = () => {
   //Authentication exportt
@@ -24,6 +26,8 @@ const Login = () => {
     setLogged,
     UIDinvestor,
     setUIDinvestor,
+    portfolioUser,
+    setPortfolioUser,
   } = useContext(UserContext);
 
   const [email, setEmail] = useState();
@@ -47,54 +51,14 @@ const Login = () => {
           }
         }
       );
+      if (UIDinvestor !== null) {
+        await ReadUserInvestments(UIDinvestor, setUserdata); //fetch from firestore user investments
+        await ReadUserPorfolio(UIDinvestor, setPortfolioUser, portfolioUser); //fetch from firestore user portfolio
+      }
     } catch (error) {
       console.error(error);
     }
   };
-
-  /*   const handleRegisterUser = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password).then(
-        (response) => {
-          const userMetaData = response?.user;
-          const userUID = userMetaData?.uid;
-          setUserUid(userUID);
-          //setUserdata(userUID);
-          setUIDinvestor(userUID);
-          console.log("userUID: ", userUID);
-        }
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  }; */
-
-  /* const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      setUserUid(null);
-      setEmail(null);
-      setPassword(null);
-      setUIDinvestor(null);
-      console.log("logget out user: ", userUid);
-    } catch (error) {
-      console.error(error);
-    }
-  }; */
-
-  /*   const handleDeleteUser = async () => {
-    const userDelete = auth?.currentUser;
-
-    try {
-      await deleteUser(userDelete);
-      setUserUid(null);
-      setEmail(null);
-      setPassword(null);
-      setUIDinvestor(null);
-    } catch (error) {
-      console.error(error);
-    }
-  }; */
 
   return (
     <div className="login-container">

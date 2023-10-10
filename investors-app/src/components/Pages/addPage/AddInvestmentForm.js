@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
 import "./AddInvestmentForm.css";
 import AddNewInvestment from "../../Firestore/create/AddNewInvestment";
+import { ReadUserInvestments } from "../../Firestore/read/ReadUserInvestments";
+import { ReadUserPorfolio } from "../../Firestore/read/ReadUserPorfolio";
 
 const AddInvestmentForm = () => {
-  const { UIDinvestor } = useContext(UserContext);
+  const { UIDinvestor, setUserdata, setPortfolioUser, logged } =
+    useContext(UserContext);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
@@ -14,10 +17,8 @@ const AddInvestmentForm = () => {
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
   const [cashInvested, setCashInvested] = useState("");
 
-  const handleAddInvestment = () => {
-    //  const tempValue = Number(parseFloat((amount * price).toFixed(2)));
-
-    AddNewInvestment(
+  const handleAddInvestment = async () => {
+    await AddNewInvestment(
       UIDinvestor,
       name,
       amount,
@@ -26,6 +27,9 @@ const AddInvestmentForm = () => {
       cashInvested,
       boughtDate
     );
+
+    await ReadUserInvestments(UIDinvestor, setUserdata);
+    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
   };
 
   const handleResetForm = () => {
@@ -67,9 +71,9 @@ const AddInvestmentForm = () => {
           className="input__investment"
           onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
-        <label className="input__label">price of buy</label>
+        <label className="input__label">purchase price</label>
         <input
-          placeholder="cost"
+          placeholder="purchase price"
           type="number"
           step="0.1"
           className="input__investment"

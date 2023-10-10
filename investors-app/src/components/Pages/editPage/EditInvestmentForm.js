@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
+import { UpdateSingleInvestment } from "../../Firestore/update/UpdateSingleInvestment";
 
 const EditInvestmentForm = () => {
   //Context
@@ -42,6 +43,18 @@ const EditInvestmentForm = () => {
 
   const handleEditInvestment = () => {
     console.log("edit btn clicked");
+    if (logged === true && UIDinvestor !== null) {
+      UpdateSingleInvestment(
+        id,
+        UIDinvestor,
+        name,
+        amount,
+        price,
+        cost,
+        cashInvested,
+        boughtDate
+      );
+    }
   };
 
   return (

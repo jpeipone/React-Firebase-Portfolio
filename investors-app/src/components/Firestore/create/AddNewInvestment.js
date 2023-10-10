@@ -36,14 +36,17 @@ const AddNewInvestment = async (
     investorDocument,
     "investments"
   );
-
-  await addDoc(investorInvestmentsCollection, newInvestment);
-  console.log("add new doc");
+  try {
+    await addDoc(investorInvestmentsCollection, newInvestment);
+    console.log("add new doc");
+  } catch (error) {
+    console.error(error);
+  }
 
   // update portfolio Summary
   const assetSum = 1;
   const value = tempValue;
-  SummaryUserInvestments(UIDinvestor, 1, cashInvested, value);
+  SummaryUserInvestments(UIDinvestor, assetSum, cashInvested, value);
 };
 
 export default AddNewInvestment;

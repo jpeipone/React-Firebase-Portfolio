@@ -22,12 +22,13 @@ const PortfolioValueSummary = () => {
   const [portfolioData, setPortfolioData] = useState();
   const [totalROI, setTotalROI] = useState(0);
 
-  const handleGetPortfolio = (UIDinvestor) => {
+  const handleGetPortfolio = async (UIDinvestor) => {
     console.log("clicked porfolio btn");
     if (UIDinvestor === null) {
       return;
     }
-    ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
+    //  ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
+    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
     console.log("porfolio of user", portfolioUser);
   };
 
@@ -41,32 +42,41 @@ const PortfolioValueSummary = () => {
     }
   }, [portfolioUser]);
 
-  useEffect(() => {
+  //This works, but spark plan has limit in daily read quotas, so therefore this has been commented away.
+  /*  useEffect(() => {
     if (logged === true) {
       ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
     }
-  }, [portfolioUser, logged, userdata]);
+  }, [portfolioUser, logged, userdata]); */
 
-  console.log("useEffect portfolio:", portfolioData);
+  // console.log("useEffect portfolio:", portfolioData);
   return (
     <div>
       <div className="summary-container">
         {portfolioData?.TotalValue - portfolioData?.TotalCost > 0 ? (
-          <img className="yellowsun-img" src="./images/YellowSun.svg" />
+          <img
+            className="yellowsun-img"
+            src="./images/YellowSun.svg"
+            alt="Sunny"
+          />
         ) : (
-          <img className="yellowsun-img" src="./images/snowflakeBlue.svg" />
+          <img
+            className="yellowsun-img"
+            src="./images/snowflakeBlue.svg"
+            alt="Snowflake"
+          />
         )}
         <div className="portfolio-values">
           <div className="porfolio-row">
             <div className="porfolio-column">
-              <div className="value__hd">Total value:</div>
+              <div className="value__hd">Total value</div>
 
               <div className="portfolio__totavalue">
-                {portfolioData?.TotalValue}$
+                {parseFloat(portfolioData?.TotalValue).toFixed(2)}$
               </div>
             </div>
             <div className="porfolio-column">
-              <div className="value__hd">Total invested:</div>
+              <div className="value__hd">Total invested</div>
 
               <div className="portfolio__invested">
                 {portfolioData?.TotalCost}$
@@ -74,7 +84,7 @@ const PortfolioValueSummary = () => {
             </div>
           </div>
 
-          <div className="value__hd">Total returns:</div>
+          <div className="value__hd">Total returns</div>
           <div className="portfolio__profit">
             {Number(
               parseFloat(
@@ -86,7 +96,7 @@ const PortfolioValueSummary = () => {
             $
           </div>
 
-          <div className="value__hd">Total ROI:</div>
+          <div className="value__hd">Total ROI</div>
           <div
             className={
               totalROI > 0

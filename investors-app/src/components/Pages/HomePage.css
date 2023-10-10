@@ -4,11 +4,26 @@
   width: 100%;
 }
 
+.homepage-row {
+  display: flex;
+  align-items: center;
+}
+
 .homepage__hd {
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 1.5rem;
   margin-top: 1rem;
+}
+
+.home-add__btn {
+  width: 100px;
+  height: 25px;
+  background-color: green;
+  border: none;
+  color: white;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 @media only screen and (max-width: 1400px) {

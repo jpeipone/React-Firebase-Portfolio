@@ -1,13 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../ContextData";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  deleteUser,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../firebaseConfig";
 import "./Login.css";
 

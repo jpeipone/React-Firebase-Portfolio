@@ -9,6 +9,7 @@ a {
   margin-right: 1.5rem;
   background-color: white;
   margin-top: 1rem;
+  overflow-x: scroll;
 }
 
 .asset-row {
@@ -74,7 +75,7 @@ a {
   width: 50px;
   height: 40px;
   background-color: #0b14e0;
-  border-radius: 25px;
+  border-radius: 10px;
   border: none;
   color: white;
   font-weight: bold;
@@ -85,16 +86,19 @@ a {
   width: 50px;
   height: 40px;
   background-color: red;
-  border-radius: 25px;
+  border-radius: 10px;
   border: none;
   color: white;
   font-weight: bold;
 }
 
 @media only screen and (max-width: 1300px) {
+  .table-assets-container {
+    margin-right: none;
+  }
   .asset-row {
-    width: 95%;
     font-size: 1rem;
+    width: 700px;
   }
 
   .asset__hd {
@@ -113,29 +117,34 @@ a {
   }
 
   .asset__price {
-    width: 70px;
+    width: 100px;
   }
 
   .asset__profit {
-    width: 70px;
+    width: 100px;
   }
   .positive__profit {
-    width: 70px;
+    width: 100px;
   }
 
   .negative__profit {
-    width: 70px;
+    width: 100px;
   }
 
   .asset__value {
-    width: 70px;
+    width: 100px;
   }
 
   .asset__amount {
-    width: 70px;
+    width: 100px;
   }
 
   .asset__cost {
-    width: 70px;
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .table-assets-container {
+    margin-left: 0.5rem;
   }
 }

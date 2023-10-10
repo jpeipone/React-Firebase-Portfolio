@@ -35,6 +35,9 @@ export const SummaryUserInvestments = async (
     TotalCost: increment(cashInvested),
     TotalValue: increment(value),
   };
-
-  await setDoc(userSummaryRef, summaryInvesments, { merge: true });
+  try {
+    await setDoc(userSummaryRef, summaryInvesments, { merge: true });
+  } catch (error) {
+    console.error(error);
+  }
 };

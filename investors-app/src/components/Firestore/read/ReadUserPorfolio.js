@@ -5,12 +5,15 @@ import { getDoc, doc } from "firebase/firestore";
 
 export const ReadUserPorfolio = async (
   UIDinvestor,
-  portfolioUser,
-  setPortfolioUser
+  setPortfolioUser,
+  portfolioUser
 ) => {
   //  const { portfolioUser, setPortfolioUser } = useContext(UserContext);
 
   //Firestore location of investor investments based on uid
+  if (UIDinvestor === null) {
+    return;
+  }
 
   console.log("//////////////////fetchPorfolio");
   const investorPorfolioRef = doc(
@@ -30,8 +33,11 @@ export const ReadUserPorfolio = async (
 
     // setPortfolioUser(resultPortfolio);
     const investorPortfolio = queryPortfolioSnapshot?.data();
-    setPortfolioUser(investorPortfolio);
-    console.log("Investor Portfolio summery:", portfolioUser);
+    if (investorPortfolio !== null) {
+      //without this gives typerError: cannot read properties of null
+      setPortfolioUser(investorPortfolio);
+    }
+    //  console.log("Investor Portfolio summery:", investorPortfolio);
   } catch (error) {
     console.error(error);
   }

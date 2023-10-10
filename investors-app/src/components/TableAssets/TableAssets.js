@@ -4,6 +4,8 @@ import { UserContext } from "../../ContextData";
 import "./TableAssets.css";
 import { DeleteInvestmentDoc } from "../Firestore/delete/DeleteInvestmentDoc";
 import { SummaryDeleteInvestment } from "../Firestore/update/SummaryDeleteInvestment";
+import { ReadUserInvestments } from "../Firestore/read/ReadUserInvestments";
+import { ReadUserPorfolio } from "../Firestore/read/ReadUserPorfolio";
 
 const TableAssets = () => {
   const {
@@ -15,11 +17,26 @@ const TableAssets = () => {
     setLogged,
     UIDinvestor,
     setUIDinvestor,
+    setPortfolioUser,
   } = useContext(UserContext);
 
-  const handleDeleteInvestment = (id, value, cashInvested) => {
-    DeleteInvestmentDoc(UIDinvestor, id);
-    SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+  //This works, but due to firestore spark quotas, it is commented away
+  /*  useEffect(() => {
+    if (logged === true && UIDinvestor !== null) {
+      //  ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
+      ReadUserInvestments(UIDinvestor, setUserdata);
+    }
+  }, [logged, userdata]); */
+
+  const handleDeleteInvestment = async (id, value, cashInvested) => {
+    if (logged === true) {
+      await DeleteInvestmentDoc(UIDinvestor, id);
+      await SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+      await ReadUserInvestments(UIDinvestor, setUserdata);
+      await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+    } else {
+      return;
+    }
   };
 
   const handleEditInvestment = (id) => {
@@ -42,11 +59,16 @@ const TableAssets = () => {
               <div className="asset-row" key={investment?.id}>
                 <Link to={`/show/investment/${investment?.id}`}>
                   {investment?.value - investment?.cashInvested > 0 ? (
-                    <img className="weather-img" src="./images/YellowSun.svg" />
+                    <img
+                      className="weather-img"
+                      src="./images/YellowSun.svg"
+                      alt="sunny"
+                    />
                   ) : (
                     <img
                       className="weather-img"
                       src="./images/snowflakeBlue.svg"
+                      alt="snowflake"
                     />
                   )}
                 </Link>
@@ -54,7 +76,7 @@ const TableAssets = () => {
                   <div className="asset__name">{investment?.name}</div>
                 </Link>
                 <Link to={`/show/investment/${investment?.id}`}>
-                  <div className="asset__price">{investment?.price}</div>
+                  <div className="asset__price">{investment?.price}$</div>
                 </Link>
                 <Link to={`/show/investment/${investment?.id}`}>
                   <div
@@ -71,13 +93,14 @@ const TableAssets = () => {
                         )
                       )
                     )}
+                    $
                   </div>
                 </Link>
                 <Link to={`/show/investment/${investment?.id}`}>
-                  <div className="asset__value"> {investment?.value}</div>
+                  <div className="asset__value"> {investment?.value}$</div>
                 </Link>
                 <Link to={`/show/investment/${investment?.id}`}>
-                  <div className="asset__amount">{investment?.amount}</div>
+                  <div className="asset__amount">{investment?.amount}$</div>
                 </Link>
                 <Link to={`/edit/investment/${investment?.id}`}>
                   <button

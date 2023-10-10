@@ -8,14 +8,11 @@ export const ReadUserPorfolio = async (
   setPortfolioUser,
   portfolioUser
 ) => {
-  //  const { portfolioUser, setPortfolioUser } = useContext(UserContext);
-
   //Firestore location of investor investments based on uid
   if (UIDinvestor === null) {
     return;
   }
 
-  console.log("//////////////////fetchPorfolio");
   const investorPorfolioRef = doc(
     db,
     "investors",

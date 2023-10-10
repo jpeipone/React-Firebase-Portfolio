@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
 import { UpdateSingleInvestment } from "../../Firestore/update/UpdateSingleInvestment";
+import { SummaryUserInvestments } from "../../Firestore/update/SummaryUserInvestments";
 
 const EditInvestmentForm = () => {
   //Context
@@ -37,14 +38,14 @@ const EditInvestmentForm = () => {
     setBoughtDate(Investment?.boughtDate);
     setWinLossNeutral(Investment?.winLossNeutral);
     setCashInvested(Investment?.cashInvested);
-  }, []);
+  }, [Investment]);
 
   console.log("found investment edit: ", Investment);
 
-  const handleEditInvestment = () => {
+  const handleEditInvestment = async () => {
     console.log("edit btn clicked");
     if (logged === true && UIDinvestor !== null) {
-      UpdateSingleInvestment(
+      await UpdateSingleInvestment(
         id,
         UIDinvestor,
         name,
@@ -54,6 +55,25 @@ const EditInvestmentForm = () => {
         cashInvested,
         boughtDate
       );
+
+      //update portfolio
+      const tempValue = Number(parseFloat((amount * price).toFixed(2)));
+      const updateCashInvested = cashInvested - Investment?.cashInvested;
+      const updateValue = tempValue - Investment?.value;
+      console.log(
+        "new updated values cashinvested and updateValue",
+        updateCashInvested,
+        " and ",
+        updateValue
+      );
+      await SummaryUserInvestments(
+        UIDinvestor,
+        0,
+        updateCashInvested,
+        updateValue
+      );
+    } else {
+      return;
     }
   };
 

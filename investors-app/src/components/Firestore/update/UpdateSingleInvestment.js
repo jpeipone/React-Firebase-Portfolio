@@ -13,6 +13,9 @@ export const UpdateSingleInvestment = async (
   boughtDate
 ) => {
   try {
+    if (UIDinvestor === null) {
+      return;
+    }
     //reference investment location in firestore
     const userSummaryRef = doc(db, "investors", UIDinvestor, "investments", id);
 

@@ -66,7 +66,14 @@ const EditInvestmentForm = () => {
       let previouslyPositiveOrNegative = null;
 
       //check if asset has changed from negative to positive or vice versa
-      if (updateValue < 0) {
+      const previousReturn = Investment?.value - Investment?.cashInvested;
+      const currentReturn = value - cashInvested;
+      if (
+        (previousReturn > 0 && currentReturn > 0) ||
+        (previousReturn < 0 && currentReturn < 0)
+      ) {
+        previouslyPositiveOrNegative = null;
+      } else if (updateValue < 0) {
         //if negative value, its not profitable asset anymore, but was previoulsy positive
         previouslyPositiveOrNegative = "positive";
       } else if (updateValue > 0) {

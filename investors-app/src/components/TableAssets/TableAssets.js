@@ -31,10 +31,6 @@ const TableAssets = () => {
     }
   };
 
-  const handleEditInvestment = (id) => {
-    console.log("edit clicked");
-  };
-
   return (
     <div>
       <div className="table-assets-container">
@@ -95,12 +91,7 @@ const TableAssets = () => {
                   <div className="asset__amount">{investment?.amount}</div>
                 </Link>
                 <Link to={`/edit/investment/${investment?.id}`}>
-                  <button
-                    className="asset-edit__btn"
-                    onClick={() => handleEditInvestment(investment?.id)}
-                  >
-                    Edit
-                  </button>
+                  <button className="asset-edit__btn">Edit</button>
                 </Link>
 
                 <button

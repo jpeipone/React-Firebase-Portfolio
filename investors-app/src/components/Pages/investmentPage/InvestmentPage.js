@@ -20,11 +20,8 @@ const InvestmentPage = () => {
   const { id } = useParams();
 
   const findInvestment = userdata.find((element) => element.id === id);
-  console.log("found investment edit: ", findInvestment);
 
-  const handleEditInvestment = (id) => {
-    console.log("edit clicked");
-  };
+  const handleEditInvestment = (id) => {};
 
   const handleDeleteInvestment = (id, value, cashInvested) => {
     DeleteInvestmentDoc(UIDinvestor, id);

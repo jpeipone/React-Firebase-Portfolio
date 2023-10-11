@@ -8,15 +8,12 @@ import SignOutUser from "../../Authentication/SignOutUser";
 import { DeleteUserAccount } from "../../Authentication/DeleteUserAccount";
 
 const LoginPage = () => {
-  //Authentication exportt
-  //const auth = getAuth(app);
   //Context
   const { logged, setLogged } = useContext(UserContext);
 
   const [showRegister, setShowRegister] = useState(false);
 
   const handleLogOut = () => {
-    console.log("clicked sign out button");
     SignOutUser(logged, setLogged);
   };
 
@@ -27,7 +24,6 @@ const LoginPage = () => {
 
   const handleShowRegister = () => {
     setShowRegister(!showRegister);
-    console.log("show register clicked", showRegister);
   };
 
   return (

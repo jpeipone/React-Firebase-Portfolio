@@ -38,7 +38,6 @@ const AddNewInvestment = async (
   );
   try {
     await addDoc(investorInvestmentsCollection, newInvestment);
-    console.log("add new doc");
   } catch (error) {
     console.error(error);
   }

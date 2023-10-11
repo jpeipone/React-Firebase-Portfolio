@@ -24,7 +24,6 @@ const PortfolioValueSummary = () => {
   const [totalROI, setTotalROI] = useState(0);
 
   const handleGetPortfolio = async (UIDinvestor) => {
-    console.log("clicked porfolio btn");
     if (UIDinvestor === null && logged === true) {
       return;
     }
@@ -105,7 +104,7 @@ const PortfolioValueSummary = () => {
               className="refresh-porfolio__btn"
               onClick={() => handleGetPortfolio(UIDinvestor)}
             >
-              Refresh
+              &#8635; Refresh
             </button>
           )}
         </div>

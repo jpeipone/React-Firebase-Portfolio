@@ -49,7 +49,6 @@ const AddInvestment = () => {
       );
 
       addDoc(investorInvestmentsCollection, newInvestment);
-      console.log("clicked");
     }
     //     investmentCollection.addDoc(newInvestment);
     //testing update Summary

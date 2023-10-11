@@ -42,10 +42,9 @@ const EditInvestmentForm = () => {
     setCashInvested(Investment?.cashInvested);
   }, []);
 
-  console.log("found investment edit: ", Investment);
+  const handleEditInvestment = async (event) => {
+    event.preventDefault(); //prevents refreshing website
 
-  const handleEditInvestment = async () => {
-    console.log("edit btn clicked");
     if (logged === true && UIDinvestor !== null) {
       await UpdateSingleInvestment(
         id,
@@ -79,14 +78,7 @@ const EditInvestmentForm = () => {
       } else if (updateValue > 0) {
         previouslyPositiveOrNegative = "negative";
       }
-      console.log(
-        "new updated values cashinvested and updateValue",
-        updateCashInvested,
-        " and ",
-        updateValue,
-        "and previously positive or negative ",
-        previouslyPositiveOrNegative
-      );
+
       await SummaryUserInvestments(
         UIDinvestor,
         0,
@@ -104,69 +96,73 @@ const EditInvestmentForm = () => {
 
   return (
     <div className="edit-form">
-      <div className="form-container">
-        <h2> Edit investment</h2>
-        <label className="input__label">Name</label>
-        <input
-          placeholder="name"
-          type="text"
-          value={name}
-          className="input__investment"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label className="input__label">Amount</label>
-        <input
-          placeholder="amount"
-          type="number"
-          value={amount}
-          step="0.1"
-          className="input__investment"
-          onChange={(e) => setAmount(parseFloat(e.target.value))}
-        />
-        <label className="input__label">Current price</label>
-        <input
-          placeholder="price"
-          type="number"
-          value={price}
-          step="0.1"
-          className="input__investment"
-          onChange={(e) => setPrice(parseFloat(e.target.value))}
-        />
-        <label className="input__label">Purchase price</label>
-        <input
-          placeholder="purchase price"
-          type="number"
-          value={cost}
-          step="0.1"
-          className="input__investment"
-          onChange={(e) => setCost(parseFloat(e.target.value))}
-        />
-        <label className="input__label">Cash invested</label>
-        <input
-          placeholder="cash invested"
-          type="number"
-          value={cashInvested}
-          step="0.1"
-          className="input__investment"
-          onChange={(e) => setCashInvested(parseFloat(e.target.value))}
-        />
-        <label className="input__label">Date of purchase</label>
-        <input
-          placeholder="date"
-          type="date"
-          value={boughtDate}
-          className="input__investment"
-          onChange={(e) => setBoughtDate(e.target.value)}
-        />
-        <div className="form-buttons">
-          <button
-            className="add-investment__btn"
-            onClick={handleEditInvestment}
-          >
-            Save edit
-          </button>
+      <form onSubmit={handleEditInvestment}>
+        <div className="form-container">
+          <h2> Edit investment</h2>
+          <label className="input__label">Name</label>
+          <input
+            placeholder="name"
+            type="text"
+            value={name}
+            className="input__investment"
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label className="input__label">Amount</label>
+          <input
+            placeholder="amount"
+            type="number"
+            value={amount}
+            step="0.1"
+            className="input__investment"
+            required
+            onChange={(e) => setAmount(parseFloat(e.target.value))}
+          />
+          <label className="input__label">Current price</label>
+          <input
+            placeholder="price"
+            type="number"
+            value={price}
+            step="0.1"
+            className="input__investment"
+            required
+            onChange={(e) => setPrice(parseFloat(e.target.value))}
+          />
+          <label className="input__label">Purchase price</label>
+          <input
+            placeholder="purchase price"
+            type="number"
+            value={cost}
+            step="0.1"
+            className="input__investment"
+            required
+            onChange={(e) => setCost(parseFloat(e.target.value))}
+          />
+          <label className="input__label">Cash invested</label>
+          <input
+            placeholder="cash invested"
+            type="number"
+            value={cashInvested}
+            step="0.1"
+            className="input__investment"
+            required
+            onChange={(e) => setCashInvested(parseFloat(e.target.value))}
+          />
+          <label className="input__label">Date of purchase</label>
+          <input
+            placeholder="date"
+            type="date"
+            value={boughtDate}
+            className="input__investment"
+            onChange={(e) => setBoughtDate(e.target.value)}
+          />
+          <div className="form-buttons">
+            <button className="add-investment__btn" type="submit">
+              Save edit
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

@@ -49,9 +49,9 @@ const NavigationMenuBar = () => {
           className={showHamburger ? "hamburger-x" : "hamburger-menu"}
           onClick={handleShowHamburgerMenu}
         >
-          {!showHamburger && <div className="burger burger-1" />}
-          {!showHamburger && <div className="burger burger-2" />}
-          {!showHamburger && <div className="burger burger-3" />}
+          {!showHamburger && <div className="burger" />}
+          {!showHamburger && <div className="burger" />}
+          {!showHamburger && <div className="burger" />}
         </div>
       </nav>
       {showHamburger === true && (

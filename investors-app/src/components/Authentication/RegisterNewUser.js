@@ -32,7 +32,6 @@ export const RegisterNewUser = () => {
           const userUID = userMetaData?.uid;
 
           setUIDinvestor(userUID);
-          console.log("userUID: ", userUID);
         }
       );
     } catch (error) {

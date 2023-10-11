@@ -36,7 +36,6 @@ const ReadAllUserInvestments = () => {
         }));
 
         setUserdata(resultInvestments);
-        console.log("%%%%%%%%", resultInvestments);
       }
     } catch (error) {
       console.error(error);

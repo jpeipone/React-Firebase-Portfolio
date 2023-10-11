@@ -45,7 +45,7 @@ const Login = () => {
       const userUID = userMetaData?.uid;
       setUserUid(userUID);
       setUIDinvestor(userUID);
-      console.log("userUID: ", userUID);
+
       if (userUID !== null) {
         setLogged(true);
         await ReadUserInvestments(userUID, setUserdata); //fetch from firestore user investments

@@ -28,7 +28,7 @@ function App() {
       </Router>
       {/* <Login /> */}
       {/* <AddInvestment /> */}
-      <ReadAllUserInvestments />
+      {/* <ReadAllUserInvestments /> */}
     </div>
   );
 }

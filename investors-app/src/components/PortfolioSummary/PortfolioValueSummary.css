@@ -63,6 +63,18 @@
   font-size: 1rem;
 }
 
+.refresh-porfolio__btn {
+  width: 100px;
+  height: 25px;
+  background-color: white;
+  border-color: #0b14e0;
+  border-width: 3px;
+  border-radius: 25px;
+  color: #0b14e0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 1400px) {
   .summary-container {
     width: 95%;

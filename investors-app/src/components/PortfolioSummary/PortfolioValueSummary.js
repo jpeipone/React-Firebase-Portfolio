@@ -4,6 +4,7 @@ import { db } from "../../firebaseConfig";
 import { getDocs, collection, doc, query } from "firebase/firestore";
 import { ReadUserPorfolio } from "../Firestore/read/ReadUserPorfolio";
 import "./PortfolioValueSummary.css";
+import { ReadUserInvestments } from "../Firestore/read/ReadUserInvestments";
 
 const PortfolioValueSummary = () => {
   const {
@@ -24,12 +25,13 @@ const PortfolioValueSummary = () => {
 
   const handleGetPortfolio = async (UIDinvestor) => {
     console.log("clicked porfolio btn");
-    if (UIDinvestor === null) {
+    if (UIDinvestor === null && logged === true) {
       return;
     }
-    //  ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
-    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
-    console.log("porfolio of user", portfolioUser);
+
+    await ReadUserPorfolio(UIDinvestor, setPortfolioUser); //refresh PorfolioSummary content
+
+    await ReadUserInvestments(UIDinvestor, setUserdata); //refresh TableAssets content
   };
 
   useEffect(() => {
@@ -98,11 +100,16 @@ const PortfolioValueSummary = () => {
           >
             {totalROI}%
           </div>
+          {logged === true && (
+            <button
+              className="refresh-porfolio__btn"
+              onClick={() => handleGetPortfolio(UIDinvestor)}
+            >
+              Refresh
+            </button>
+          )}
         </div>
       </div>
-      <button onClick={() => handleGetPortfolio(UIDinvestor)}>
-        read Portfolio
-      </button>
     </div>
   );
 };

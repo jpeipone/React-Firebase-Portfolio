@@ -95,7 +95,7 @@ nav ul li a:hover {
     position: relative;
     width: 30px;
     height: 30px;
-    margin-right: 1.2rem;
+    margin-right: 0.5rem;
   }
   .hamburger-x:after {
     position: absolute;

@@ -16,26 +16,30 @@ const ReadAllUserInvestments = () => {
   } = useContext(UserContext);
 
   const HandleReadInvestment = async () => {
-    if (logged === true) {
-      //Firestore location of investor investments based on uid
-      const investorInvestmentsCollectionRef = collection(
-        db,
-        "investors",
-        UIDinvestor,
-        "investments"
-      );
-      //query
-      const queryObject = query(investorInvestmentsCollectionRef);
+    try {
+      if (logged === true) {
+        //Firestore location of investor investments based on uid
+        const investorInvestmentsCollectionRef = collection(
+          db,
+          "investors",
+          UIDinvestor,
+          "investments"
+        );
+        //query
+        const queryObject = query(investorInvestmentsCollectionRef);
 
-      const queryInvestmentsSnapshot = await getDocs(queryObject);
+        const queryInvestmentsSnapshot = await getDocs(queryObject);
 
-      const resultInvestments = queryInvestmentsSnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
+        const resultInvestments = queryInvestmentsSnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
 
-      setUserdata(resultInvestments);
-      console.log("%%%%%%%%", resultInvestments);
+        setUserdata(resultInvestments);
+        console.log("%%%%%%%%", resultInvestments);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 

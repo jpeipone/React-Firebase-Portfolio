@@ -24,6 +24,9 @@
   color: white;
   margin-top: 1rem;
   margin-left: 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 @media only screen and (max-width: 1400px) {

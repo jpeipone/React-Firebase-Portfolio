@@ -20,7 +20,7 @@ const HomePage = () => {
         <div className="homepage__hd">My Assets</div>
         {logged && (
           <Link to="/add" className="navlink-item">
-            <button className="home-add__btn">add new</button>
+            <button className="home-add__btn">Add new</button>
           </Link>
         )}
       </div>

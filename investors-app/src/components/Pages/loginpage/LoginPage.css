@@ -27,16 +27,17 @@
   color: black;
   width: 300px;
   height: 30px;
+  font-weight: bold;
 }
 
 .delete-account-btn {
   background-color: red;
   color: white;
-
   border: none;
   margin-top: 40px;
   width: 300px;
   height: 30px;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 800px) {

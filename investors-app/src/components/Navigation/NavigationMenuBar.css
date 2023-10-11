@@ -90,4 +90,26 @@ nav ul li a:hover {
     color: black;
     border-bottom: 3px solid white;
   }
+
+  .hamburger-x {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-right: 1.2rem;
+  }
+  .hamburger-x:after {
+    position: absolute;
+    height: 30px;
+    border-left: 4px solid black;
+    transform: rotate(45deg);
+    content: "";
+  }
+
+  .hamburger-x:before {
+    position: absolute;
+    height: 30px;
+    border-left: 4px solid black;
+    transform: rotate(-45deg);
+    content: "";
+  }
 }

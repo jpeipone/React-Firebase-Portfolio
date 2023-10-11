@@ -11,16 +11,7 @@ const LoginPage = () => {
   //Authentication exportt
   //const auth = getAuth(app);
   //Context
-  const {
-    readData,
-    setReadData,
-    userdata,
-    setUserdata,
-    logged,
-    setLogged,
-    UIDinvestor,
-    setUIDinvestor,
-  } = useContext(UserContext);
+  const { logged, setLogged } = useContext(UserContext);
 
   const [showRegister, setShowRegister] = useState(false);
 

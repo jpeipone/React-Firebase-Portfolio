@@ -6,7 +6,8 @@ export const SummaryUserInvestments = async (
   UIDinvestor,
   assetSum,
   cashInvested,
-  value
+  value,
+  previouslyPositiveOrNegative
 ) => {
   //reference summary collection
   const userSummaryRef = doc(
@@ -26,6 +27,15 @@ export const SummaryUserInvestments = async (
   } else {
     positiveA = 0;
     negativeA = 0;
+  }
+
+  //if investment flips from positive to negative or vice versa
+  if (previouslyPositiveOrNegative !== null) {
+    if (previouslyPositiveOrNegative === "positive") {
+      positiveA = -1;
+    } else if (previouslyPositiveOrNegative === "negative") {
+      negativeA = -1;
+    }
   }
 
   const summaryInvesments = {

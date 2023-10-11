@@ -35,21 +35,13 @@ const PortfolioValueSummary = () => {
   useEffect(() => {
     setPortfolioData(portfolioUser);
     if (portfolioUser != null) {
-      const decimalsROI =
-        (portfolioUser?.TotalValue / portfolioUser?.TotalCost) * 100;
+      const moneyGained = portfolioData?.TotalValue - portfolioData?.TotalCost;
+      const decimalsROI = (moneyGained / portfolioUser?.TotalCost) * 100;
       const roundedROI = parseFloat(decimalsROI.toFixed(1));
       setTotalROI(roundedROI);
     }
-  }, [portfolioUser]);
+  }, [portfolioUser, totalROI]);
 
-  //This works, but spark plan has limit in daily read quotas, so therefore this has been commented away.
-  /*  useEffect(() => {
-    if (logged === true) {
-      ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
-    }
-  }, [portfolioUser, logged, userdata]); */
-
-  // console.log("useEffect portfolio:", portfolioData);
   return (
     <div>
       <div className="summary-container">

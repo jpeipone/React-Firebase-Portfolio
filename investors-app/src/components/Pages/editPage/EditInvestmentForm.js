@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
 import { UpdateSingleInvestment } from "../../Firestore/update/UpdateSingleInvestment";
 import { SummaryUserInvestments } from "../../Firestore/update/SummaryUserInvestments";
+import { ReadUserInvestments } from "../../Firestore/read/ReadUserInvestments";
+import { ReadUserPorfolio } from "../../Firestore/read/ReadUserPorfolio";
 
 const EditInvestmentForm = () => {
   //Context
@@ -38,7 +40,7 @@ const EditInvestmentForm = () => {
     setBoughtDate(Investment?.boughtDate);
     setWinLossNeutral(Investment?.winLossNeutral);
     setCashInvested(Investment?.cashInvested);
-  }, [Investment]);
+  }, []);
 
   console.log("found investment edit: ", Investment);
 
@@ -60,18 +62,34 @@ const EditInvestmentForm = () => {
       const tempValue = Number(parseFloat((amount * price).toFixed(2)));
       const updateCashInvested = cashInvested - Investment?.cashInvested;
       const updateValue = tempValue - Investment?.value;
+
+      let previouslyPositiveOrNegative = null;
+
+      //check if asset has changed from negative to positive or vice versa
+      if (updateValue < 0) {
+        //if negative value, its not profitable asset anymore, but was previoulsy positive
+        previouslyPositiveOrNegative = "positive";
+      } else if (updateValue > 0) {
+        previouslyPositiveOrNegative = "negative";
+      }
       console.log(
         "new updated values cashinvested and updateValue",
         updateCashInvested,
         " and ",
-        updateValue
+        updateValue,
+        "and previously positive or negative ",
+        previouslyPositiveOrNegative
       );
       await SummaryUserInvestments(
         UIDinvestor,
         0,
         updateCashInvested,
-        updateValue
+        updateValue,
+        previouslyPositiveOrNegative
       );
+
+      await ReadUserInvestments(UIDinvestor, setUserdata);
+      await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
     } else {
       return;
     }
@@ -107,16 +125,16 @@ const EditInvestmentForm = () => {
           className="input__investment"
           onChange={(e) => setPrice(parseFloat(e.target.value))}
         />
-        <label className="input__label">price of buy</label>
+        <label className="input__label">Purchase price</label>
         <input
-          placeholder="cost"
+          placeholder="purchase price"
           type="number"
           value={cost}
           step="0.1"
           className="input__investment"
           onChange={(e) => setCost(parseFloat(e.target.value))}
         />
-        <label className="input__label">cash invested</label>
+        <label className="input__label">Cash invested</label>
         <input
           placeholder="cash invested"
           type="number"
@@ -125,7 +143,7 @@ const EditInvestmentForm = () => {
           className="input__investment"
           onChange={(e) => setCashInvested(parseFloat(e.target.value))}
         />
-        <label className="input__label">Date when bought</label>
+        <label className="input__label">Date of purchase</label>
         <input
           placeholder="date"
           type="date"

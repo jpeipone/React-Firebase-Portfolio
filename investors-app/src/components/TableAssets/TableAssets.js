@@ -20,14 +20,6 @@ const TableAssets = () => {
     setPortfolioUser,
   } = useContext(UserContext);
 
-  //This works, but due to firestore spark quotas, it is commented away
-  /*  useEffect(() => {
-    if (logged === true && UIDinvestor !== null) {
-      //  ReadUserPorfolio(UIDinvestor, portfolioUser, setPortfolioUser);
-      ReadUserInvestments(UIDinvestor, setUserdata);
-    }
-  }, [logged, userdata]); */
-
   const handleDeleteInvestment = async (id, value, cashInvested) => {
     if (logged === true) {
       await DeleteInvestmentDoc(UIDinvestor, id);
@@ -100,7 +92,7 @@ const TableAssets = () => {
                   <div className="asset__value"> {investment?.value}$</div>
                 </Link>
                 <Link to={`/show/investment/${investment?.id}`}>
-                  <div className="asset__amount">{investment?.amount}$</div>
+                  <div className="asset__amount">{investment?.amount}</div>
                 </Link>
                 <Link to={`/edit/investment/${investment?.id}`}>
                   <button

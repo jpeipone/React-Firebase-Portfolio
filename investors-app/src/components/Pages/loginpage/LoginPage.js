@@ -9,7 +9,8 @@ import { DeleteUserAccount } from "../../Authentication/DeleteUserAccount";
 
 const LoginPage = () => {
   //Context
-  const { logged, setLogged } = useContext(UserContext);
+  const { logged, setLogged, UIDinvestor, setUIDinvestor } =
+    useContext(UserContext);
 
   const [showRegister, setShowRegister] = useState(false);
 
@@ -18,7 +19,8 @@ const LoginPage = () => {
   };
 
   const handleDeleteUserAccount = () => {
-    DeleteUserAccount(logged, setLogged);
+    DeleteUserAccount(setLogged, UIDinvestor);
+    console.log("UID from login page", UIDinvestor);
     alert("Account was deleted from database");
   };
 

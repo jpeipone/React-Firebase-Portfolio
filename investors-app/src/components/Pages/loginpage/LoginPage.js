@@ -6,7 +6,6 @@ import "./LoginPage.css";
 import { RegisterNewUser } from "../../Authentication/RegisterNewUser";
 import SignOutUser from "../../Authentication/SignOutUser";
 import { DeleteUserAccount } from "../../Authentication/DeleteUserAccount";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const LoginPage = () => {
   //Context
@@ -21,7 +20,6 @@ const LoginPage = () => {
 
   const handleDeleteUserAccount = () => {
     DeleteUserAccount(setLogged, UIDinvestor);
-    console.log("UID from login page", UIDinvestor);
     alert("Account was deleted from database");
   };
 

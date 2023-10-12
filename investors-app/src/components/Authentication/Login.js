@@ -30,7 +30,8 @@ const Login = () => {
   //console.log(auth?.currentUser?.email);
   //console.log("current user", auth?.currentUser);
 
-  const handleSignin = async () => {
+  const handleSignin = async (event) => {
+    event.preventDefault(); //prevents refreshing website
     const captchaResult = recaptcha.current.getValue();
     if (!captchaResult) {
       alert("not a human");
@@ -64,28 +65,32 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-column">
-        <label className="input__label">Email</label>
-        <input
-          placeholder="Email"
-          name="Email"
-          type="username"
-          className="input-username"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label className="input__label">Password</label>
-        <input
-          placeholder="Password"
-          name="Password"
-          type="Password"
-          className="input-password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="btn__login" onClick={handleSignin}>
-          log in
-        </button>
-        <ReCAPTCHA ref={recaptcha} sitekey={SiteKey} />
-      </div>
+      <form onSubmit={handleSignin}>
+        <div className="login-column">
+          <label className="input__label">Email</label>
+          <input
+            placeholder="Email"
+            name="Email"
+            type="username"
+            className="input-username"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label className="input__label">Password</label>
+          <input
+            placeholder="Password"
+            name="Password"
+            type="Password"
+            className="input-password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="btn__login" type="submit">
+            log in
+          </button>
+          <ReCAPTCHA ref={recaptcha} sitekey={SiteKey} />
+        </div>
+      </form>
     </div>
   );
 };

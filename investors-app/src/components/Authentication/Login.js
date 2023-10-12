@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { UserContext } from "../../ContextData";
 import {
   getAuth,
@@ -12,6 +12,7 @@ import { app } from "../../firebaseConfig";
 import "./Login.css";
 import { ReadUserInvestments } from "../Firestore/read/ReadUserInvestments";
 import { ReadUserPorfolio } from "../Firestore/read/ReadUserPorfolio";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
   //Authentication exportt
@@ -33,28 +34,42 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [userUid, setUserUid] = useState();
+  const recaptcha = useRef();
 
   //console.log(auth?.currentUser?.email);
   //console.log("current user", auth?.currentUser);
 
   const handleSignin = async () => {
-    try {
-      const response = await signInWithEmailAndPassword(auth, email, password);
+    const captchaResult = recaptcha.current.getValue();
+    if (!captchaResult) {
+      alert("not a human");
+      return;
+    } else {
+      try {
+        const response = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-      const userMetaData = response?.user;
-      const userUID = userMetaData?.uid;
-      setUserUid(userUID);
-      setUIDinvestor(userUID);
+        const userMetaData = response?.user;
+        const userUID = userMetaData?.uid;
+        setUserUid(userUID);
+        setUIDinvestor(userUID);
 
-      if (userUID !== null) {
-        setLogged(true);
-        await ReadUserInvestments(userUID, setUserdata); //fetch from firestore user investments
-        await ReadUserPorfolio(userUID, setPortfolioUser, portfolioUser); //fetch from firestore user portfolio
+        if (userUID !== null) {
+          setLogged(true);
+          await ReadUserInvestments(userUID, setUserdata); //fetch from firestore user investments
+          await ReadUserPorfolio(userUID, setPortfolioUser, portfolioUser); //fetch from firestore user portfolio
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   };
+
+  //reCaptcha
+  const SiteKey = `${process.env.REACT_APP_SITE_KEY}`;
 
   return (
     <div className="login-container">
@@ -78,6 +93,7 @@ const Login = () => {
         <button className="btn__login" onClick={handleSignin}>
           log in
         </button>
+        <ReCAPTCHA ref={recaptcha} sitekey={SiteKey} />
       </div>
     </div>
   );

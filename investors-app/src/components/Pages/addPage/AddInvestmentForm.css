@@ -23,6 +23,12 @@
   margin-top: 35px;
 }
 
+.added-name {
+  margin-top: 20px;
+  font-weight: bold;
+  color: green;
+}
+
 .reset-form__btn {
   background-color: yellow;
   font-size: 15px;

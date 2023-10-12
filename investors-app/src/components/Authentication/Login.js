@@ -1,13 +1,6 @@
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useState, useRef } from "react";
 import { UserContext } from "../../ContextData";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  deleteUser,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../firebaseConfig";
 import "./Login.css";
 import { ReadUserInvestments } from "../Firestore/read/ReadUserInvestments";
@@ -19,8 +12,6 @@ const Login = () => {
   const auth = getAuth(app);
   //Context
   const {
-    readData,
-    setReadData,
     userdata,
     setUserdata,
     logged,

@@ -12,10 +12,8 @@ const EditInvestmentForm = () => {
     userdata,
     setUserdata,
     logged,
-    setLogged,
     UIDinvestor,
-    setUIDinvestor,
-    portfolioUser,
+
     setPortfolioUser,
   } = useContext(UserContext);
   const { id } = useParams();
@@ -28,6 +26,7 @@ const EditInvestmentForm = () => {
   const [boughtDate, setBoughtDate] = useState("");
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
   const [cashInvested, setCashInvested] = useState("");
+  const [editedInvestment, setEditedInvestment] = useState("");
 
   const Investment = userdata.find((element) => element.id === id);
 
@@ -90,6 +89,9 @@ const EditInvestmentForm = () => {
 
       await ReadUserInvestments(UIDinvestor, setUserdata);
       await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+      const EditedName = "saved " + name;
+
+      setEditedInvestment(EditedName);
     } else {
       return;
     }
@@ -162,6 +164,7 @@ const EditInvestmentForm = () => {
               Save edit
             </button>
           </div>
+          <div className="added-name">{editedInvestment}</div>
         </div>
       </form>
     </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../ContextData";
 import "./NavigationMenuBar.css";
+import SignOutUser from "../Authentication/SignOutUser";
 
 const NavigationMenuBar = () => {
   const {
@@ -20,6 +21,10 @@ const NavigationMenuBar = () => {
 
   const handleShowHamburgerMenu = () => {
     setShowHamburger(!showHamburger);
+  };
+
+  const handleLogOut = () => {
+    SignOutUser(logged, setLogged);
   };
   return (
     <div>
@@ -39,11 +44,27 @@ const NavigationMenuBar = () => {
               </Link>
             </li>
           )}
-          <li className="menu-items">
-            <Link to="/login" className="navlink-item">
-              log in
-            </Link>
-          </li>
+          {logged === true && (
+            <li className="menu-items">
+              <Link to="/login" className="navlink-item">
+                account
+              </Link>
+            </li>
+          )}
+          {logged === false && (
+            <li className="menu-items">
+              <Link to="/login" className="navlink-item">
+                log in
+              </Link>
+            </li>
+          )}
+          {logged === true && (
+            <li className="menu-items">
+              <div className="logout-item" onClick={handleLogOut}>
+                log out
+              </div>
+            </li>
+          )}
         </ul>
         <div
           className={showHamburger ? "hamburger-x" : "hamburger-menu"}
@@ -71,7 +92,7 @@ const NavigationMenuBar = () => {
             className="hamburger-item"
             onClick={handleShowHamburgerMenu}
           >
-            log in
+            log in / account
           </Link>
         </div>
       )}

@@ -66,11 +66,10 @@
 .refresh-porfolio__btn {
   width: 100px;
   height: 25px;
-  background-color: #0b14e0;
+  background-color: lightgray;
   border: none;
   border-radius: 25px;
-  color: white;
-  font-weight: bold;
+  color: black;
   font-size: 13px;
   margin-top: 1rem;
   margin-bottom: 1rem;

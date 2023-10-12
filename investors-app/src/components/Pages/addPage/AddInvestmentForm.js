@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../../ContextData";
 import "./AddInvestmentForm.css";
 import AddNewInvestment from "../../Firestore/create/AddNewInvestment";
@@ -16,6 +16,7 @@ const AddInvestmentForm = () => {
   const [boughtDate, setBoughtDate] = useState("");
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
   const [cashInvested, setCashInvested] = useState("");
+  const [addedInvestment, setAddedInvestment] = useState("");
 
   const handleAddInvestment = async (event) => {
     event.preventDefault(); //prevents refreshing website
@@ -31,6 +32,9 @@ const AddInvestmentForm = () => {
 
     await ReadUserInvestments(UIDinvestor, setUserdata);
     await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+    const AddedName = "saved " + name;
+
+    setAddedInvestment(AddedName);
   };
 
   return (
@@ -91,14 +95,11 @@ const AddInvestmentForm = () => {
             onChange={(e) => setBoughtDate(e.target.value)}
           />
           <div className="form-buttons">
-            <button
-              className="add-investment__btn"
-              type="submit"
-              /* onClick={handleAddInvestment} */
-            >
+            <button className="add-investment__btn" type="submit">
               Add
             </button>
           </div>
+          <div className="added-name">{addedInvestment}</div>
         </div>
       </form>
     </div>

@@ -6,7 +6,7 @@ import { SummaryUserInvestments } from "./update/SummaryUserInvestments";
 
 /**
  * Testing component
- * This was done to add a document to firestore and to summary of investments. Not included in online version.
+ * Not included in online version.
  * @returns adds a new document
  */
 

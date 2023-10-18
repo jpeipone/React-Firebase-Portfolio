@@ -20,21 +20,23 @@ const AddInvestmentForm = () => {
 
   const handleAddInvestment = async (event) => {
     event.preventDefault(); //prevents refreshing website
-    await AddNewInvestment(
-      UIDinvestor,
-      name,
-      amount,
-      price,
-      cost,
-      cashInvested,
-      boughtDate
-    );
+    if (logged === true) {
+      await AddNewInvestment(
+        UIDinvestor,
+        name,
+        amount,
+        price,
+        cost,
+        cashInvested,
+        boughtDate
+      );
 
-    await ReadUserInvestments(UIDinvestor, setUserdata);
-    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
-    const AddedName = "saved " + name;
+      await ReadUserInvestments(UIDinvestor, setUserdata);
+      await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+      const AddedName = "saved " + name;
 
-    setAddedInvestment(AddedName);
+      setAddedInvestment(AddedName);
+    }
   };
 
   return (

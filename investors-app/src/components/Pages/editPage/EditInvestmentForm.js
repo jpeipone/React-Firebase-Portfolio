@@ -28,7 +28,7 @@ const EditInvestmentForm = () => {
   const [cashInvested, setCashInvested] = useState("");
   const [editedInvestment, setEditedInvestment] = useState("");
 
-  const Investment = userdata.find((element) => element.id === id);
+  const Investment = userdata?.find((element) => element.id === id);
 
   useEffect(() => {
     setName(Investment?.name);

@@ -21,16 +21,18 @@ const InvestmentPage = () => {
   } = useContext(UserContext);
   const { id } = useParams();
 
-  const findInvestment = userdata.find((element) => element.id === id);
+  const findInvestment = userdata?.find((element) => element.id === id);
 
   const handleEditInvestment = (id) => {};
 
   const handleDeleteInvestment = async (id, value, cashInvested) => {
-    await SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
-    await DeleteInvestmentDoc(UIDinvestor, id);
+    if (logged === true) {
+      await SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+      await DeleteInvestmentDoc(UIDinvestor, id);
 
-    await ReadUserInvestments(UIDinvestor, setUserdata);
-    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+      await ReadUserInvestments(UIDinvestor, setUserdata);
+      await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
+    }
   };
 
   return (

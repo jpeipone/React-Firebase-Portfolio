@@ -24,17 +24,12 @@ export const ReadUserPorfolio = async (
   try {
     const queryPortfolioSnapshot = await getDoc(investorPorfolioRef);
 
-    /*   const resultPortfolio = queryInvestmentsSnapshot.docs.map((doc) => ({
-    ...doc.data(),
-  })); */
-
     // setPortfolioUser(resultPortfolio);
     const investorPortfolio = queryPortfolioSnapshot?.data();
     if (investorPortfolio !== null) {
       //without this gives typerError: cannot read properties of null
       setPortfolioUser(investorPortfolio);
     }
-    //  console.log("Investor Portfolio summery:", investorPortfolio);
   } catch (error) {
     console.error(error);
   }

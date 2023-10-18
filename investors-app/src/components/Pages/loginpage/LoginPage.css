@@ -23,8 +23,9 @@
 }
 
 .signOut-user__btn {
-  background-color: white;
-  color: black;
+  background-color: #0b14e0;
+  border: none;
+  color: white;
   width: 306px;
   height: 30px;
   font-weight: bold;

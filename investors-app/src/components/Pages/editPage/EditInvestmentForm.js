@@ -26,7 +26,7 @@ const EditInvestmentForm = () => {
   const [boughtDate, setBoughtDate] = useState("");
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
   const [cashInvested, setCashInvested] = useState("");
-  const [editedInvestment, setEditedInvestment] = useState("");
+  const [editedInvestment, setEditedInvestment] = useState(" ");
 
   const Investment = userdata?.find((element) => element.id === id);
 
@@ -169,12 +169,12 @@ const EditInvestmentForm = () => {
             className="input__investment"
             onChange={(e) => setBoughtDate(e.target.value)}
           />
+          <div className="added-name">{editedInvestment}</div>
           <div className="form-buttons">
             <button className="add-investment__btn" type="submit">
               Save edit
             </button>
           </div>
-          <div className="added-name">{editedInvestment}</div>
         </div>
       </form>
     </div>

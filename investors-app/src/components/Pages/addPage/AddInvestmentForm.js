@@ -16,7 +16,7 @@ const AddInvestmentForm = () => {
   const [boughtDate, setBoughtDate] = useState("");
   const [winLossNeutral, setWinLossNeutral] = useState(""); //status of trade comparing price to cost
   const [cashInvested, setCashInvested] = useState("");
-  const [addedInvestment, setAddedInvestment] = useState("");
+  const [addedInvestment, setAddedInvestment] = useState(" ");
 
   const handleAddInvestment = async (event) => {
     event.preventDefault(); //prevents refreshing website
@@ -108,12 +108,12 @@ const AddInvestmentForm = () => {
             className="input__investment"
             onChange={(e) => setBoughtDate(e.target.value)}
           />
+          <div className="added-name">{addedInvestment}</div>
           <div className="form-buttons">
             <button className="add-investment__btn" type="submit">
               Add
             </button>
           </div>
-          <div className="added-name">{addedInvestment}</div>
         </div>
       </form>
     </div>

@@ -8,26 +8,32 @@ const ContextData = ({ children }) => {
       id: 123,
       name: "welcome",
       price: 42,
-      amount: 100,
-      cost: 95,
-      cashInvested: 4,
+      amount: 10,
+      cost: 1,
+      cashInvested: 42,
       boughtDate: "11.10.2023",
-      value: 600,
+      value: 420,
     },
     {
       id: 456,
       name: "investor",
-      price: 2000,
+      price: 200,
       amount: 4,
-      cost: 600,
-      cashInvested: 1000,
+      cost: 25,
+      cashInvested: 100,
       boughtDate: "11.10.2023",
-      value: 8000,
+      value: 800,
     },
   ]);
   const [logged, setLogged] = useState(false);
   const [UIDinvestor, setUIDinvestor] = useState(null);
-  const [portfolioUser, setPortfolioUser] = useState();
+  const [portfolioUser, setPortfolioUser] = useState({
+    AssetsSum: 2,
+    NegativeAssetsSum: 0,
+    PositiveAssetsSum: 2,
+    TotalCost: 142,
+    TotalValue: 1220,
+  });
 
   return (
     <UserContext.Provider

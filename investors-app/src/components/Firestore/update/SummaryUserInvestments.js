@@ -35,6 +35,10 @@ export const SummaryUserInvestments = async (
       positiveA = -1;
     } else if (previouslyPositiveOrNegative === "negative") {
       negativeA = -1;
+    } else if (previouslyPositiveOrNegative === "same") {
+      //quarantees that NegativeAssetsSum and PositiveAssetsSum stays the same
+      positiveA = 0;
+      negativeA = 0;
     }
   }
 

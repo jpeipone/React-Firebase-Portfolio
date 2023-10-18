@@ -6,16 +6,8 @@ import "./NavigationMenuBar.css";
 import SignOutUser from "../Authentication/SignOutUser";
 
 const NavigationMenuBar = () => {
-  const {
-    readData,
-    setReadData,
-    userdata,
-    setUserdata,
-    logged,
-    setLogged,
-    UIDinvestor,
-    setUIDinvestor,
-  } = useContext(UserContext);
+  const { userdata, setUserdata, logged, setLogged, setPortfolioUser } =
+    useContext(UserContext);
 
   const [showHamburger, setShowHamburger] = useState(false);
 
@@ -25,6 +17,8 @@ const NavigationMenuBar = () => {
 
   const handleLogOut = () => {
     SignOutUser(logged, setLogged);
+    setUserdata(null);
+    setPortfolioUser(null);
   };
   return (
     <div>

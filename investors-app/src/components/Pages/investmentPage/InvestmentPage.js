@@ -4,6 +4,8 @@ import { UserContext } from "../../../ContextData";
 import "./InvestmentPage.css";
 import { DeleteInvestmentDoc } from "../../Firestore/delete/DeleteInvestmentDoc";
 import { SummaryDeleteInvestment } from "../../Firestore/update/SummaryDeleteInvestment";
+import { ReadUserInvestments } from "../../Firestore/read/ReadUserInvestments";
+import { ReadUserPorfolio } from "../../Firestore/read/ReadUserPorfolio";
 
 const InvestmentPage = () => {
   //Context
@@ -23,10 +25,12 @@ const InvestmentPage = () => {
 
   const handleEditInvestment = (id) => {};
 
-  const handleDeleteInvestment = (id, value, cashInvested) => {
-    DeleteInvestmentDoc(UIDinvestor, id);
+  const handleDeleteInvestment = async (id, value, cashInvested) => {
+    await SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+    await DeleteInvestmentDoc(UIDinvestor, id);
 
-    SummaryDeleteInvestment(UIDinvestor, value, cashInvested);
+    await ReadUserInvestments(UIDinvestor, setUserdata);
+    await ReadUserPorfolio(UIDinvestor, setPortfolioUser);
   };
 
   return (
@@ -66,12 +70,12 @@ const InvestmentPage = () => {
         <div className="image-data-container">
           <div className="image-investment">
             {findInvestment?.value - findInvestment?.cashInvested > 0 ? (
-              <img className="w-img" src="/images/YellowSun.svg" alt="sun" />
+              <img className="w-img" src="/images/YellowSun.svg" alt="sunny" />
             ) : (
               <img
                 className="w-img"
-                src="/images/SnowFlakeBlue.svg"
-                alt="sun"
+                src="/images/snowflakeBlue.svg"
+                alt="snowflake"
               />
             )}
           </div>

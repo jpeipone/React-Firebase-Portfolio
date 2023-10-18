@@ -27,27 +27,27 @@ export const RegisterNewUser = () => {
 
   const handleRegisterUser = async (event) => {
     event.preventDefault(); //prevents refreshing website
-    const captchaResult = recaptcha.current.getValue();
-    if (!captchaResult) {
+    //  const captchaResult = recaptcha.current.getValue();
+    /* if (!captchaResult) {
       setAccountCreated("Incorrect response, please check captcha");
       return;
-    } else {
-      //Authentication export
-      const auth = getAuth(app);
-      try {
-        await createUserWithEmailAndPassword(auth, email, password).then(
-          (response) => {
-            const userMetaData = response?.user;
-            const userUID = userMetaData?.uid;
+    } else { */
+    //Authentication export
+    const auth = getAuth(app);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (response) => {
+          const userMetaData = response?.user;
+          const userUID = userMetaData?.uid;
 
-            setUIDinvestor(userUID);
-            setAccountCreated("Account created");
-          }
-        );
-      } catch (error) {
-        console.error(error);
-      }
+          setUIDinvestor(userUID);
+          setAccountCreated("Account created");
+        }
+      );
+    } catch (error) {
+      console.error(error);
     }
+    // }
   };
 
   //reCaptcha
@@ -80,7 +80,7 @@ export const RegisterNewUser = () => {
             <button className="btn__register" type="submit">
               register
             </button>
-            <ReCAPTCHA ref={recaptcha} sitekey={SiteKey} />
+            {/*  <ReCAPTCHA ref={recaptcha} sitekey={SiteKey} /> */}
           </div>
         </form>
       </div>

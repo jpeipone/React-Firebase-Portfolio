@@ -27,11 +27,11 @@
 
 .porfolio-column {
   margin-right: 2em;
+  width: 120px;
 }
 
 .portfolio__totavalue {
   font-size: 1.5rem;
-
   margin-bottom: 15px;
 }
 
@@ -44,12 +44,12 @@
   margin-bottom: 15px;
 }
 
-.porfolio__ROI__positive {
+.portfolio__ROI__positive {
   font-size: 1.5rem;
   color: green;
 }
 
-.porfolio__ROI__negative {
+.portfolio__ROI__negative {
   font-size: 1.5rem;
   color: red;
 }
@@ -60,7 +60,7 @@
 }
 
 .value__hd {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .refresh-porfolio__btn {
@@ -88,10 +88,30 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 540px) {
   .summary-container {
     flex-direction: column;
     margin-left: 0.5rem;
     height: 400px;
+  }
+  .portfolio__totavalue {
+    font-size: 1.3rem;
+  }
+
+  .portfolio__invested {
+    font-size: 1.3rem;
+  }
+
+  .portfolio__profit {
+    font-size: 1.3rem;
+  }
+
+  .portfolio__ROI__positive {
+    font-size: 1.3rem;
+  }
+
+  .portfolio__ROI__negative {
+    font-size: 1.3rem;
+    color: red;
   }
 }

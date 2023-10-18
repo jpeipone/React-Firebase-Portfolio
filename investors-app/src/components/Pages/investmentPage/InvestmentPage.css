@@ -18,21 +18,21 @@
 
 .name-hd__data {
   width: 200px;
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-left: 3rem;
 }
 
 .positive__return {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-left: 3rem;
   color: green;
 }
 .negative__return {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-left: 3rem;
@@ -127,7 +127,6 @@
     font-size: 1.5rem;
     width: 120px;
     font-weight: bold;
-    margin-top: 1.5rem;
     margin-left: 1rem;
   }
 
@@ -137,7 +136,7 @@
     margin-left: 2rem;
   }
   .negative__return {
-    font-size: 1rem;
+    font-size: 1.5rem;
 
     margin-left: 1rem;
   }
@@ -163,18 +162,16 @@
   }
   .name-return__row {
     width: 80%;
-    flex-direction: column;
   }
 
   .name-hd__data {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 1.5rem;
     margin-left: 1rem;
   }
 
   .positive__return {
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     margin-left: 0rem;
   }
@@ -183,19 +180,27 @@
 
     margin-left: 0rem;
   }
+  .roi__return {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-left: 1rem;
+  }
   .investment__label {
-    width: 150px;
+    width: 165px;
     font-size: 1rem;
   }
 
   .investment__data {
     font-size: 1rem;
-    width: 200px;
+    width: 140px;
     font-weight: bold;
   }
   .w-img {
     width: 150px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-left: 90px;
+  }
+  .data-colum {
+    margin-left: 15px;
+    width: 90%;
   }
 }

@@ -70,9 +70,10 @@ const EditInvestmentForm = () => {
         (previousReturn > 0 && currentReturn > 0) ||
         (previousReturn < 0 && currentReturn < 0)
       ) {
-        previouslyPositiveOrNegative = null;
+        //return has not changed, but infact remains the same
+        previouslyPositiveOrNegative = "same";
       } else if (previousReturn > 0) {
-        //if negative value, its not profitable asset anymore, but was previoulsy positive
+        //if negative value, its not profitable asset anymore, but was previously positive
         previouslyPositiveOrNegative = "positive";
       } else if (previousReturn < 0) {
         //current return is positive, but was previously negative
@@ -105,51 +106,60 @@ const EditInvestmentForm = () => {
           <label className="input__label">Name</label>
           <input
             placeholder="name"
-            type="text"
             value={name}
+            type="text"
             className="input__investment"
             required
+            maxLength={10}
             onChange={(e) => setName(e.target.value)}
           />
           <label className="input__label">Amount</label>
           <input
-            placeholder="amount"
+            placeholder={amount}
             type="number"
-            value={amount}
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setAmount(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Current price</label>
           <input
-            placeholder="price"
+            placeholder={price}
             type="number"
-            value={price}
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setPrice(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setPrice(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Purchase price</label>
           <input
-            placeholder="purchase price"
+            placeholder={cost}
             type="number"
-            value={cost}
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setCost(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setCost(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Cash invested</label>
           <input
-            placeholder="cash invested"
+            placeholder={cashInvested}
             type="number"
-            value={cashInvested}
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setCashInvested(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setCashInvested(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Date of purchase</label>
           <input

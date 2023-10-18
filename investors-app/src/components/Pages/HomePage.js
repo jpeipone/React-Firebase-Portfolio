@@ -11,13 +11,13 @@ const HomePage = () => {
   const { logged } = useContext(UserContext);
   return (
     <div className="homepage">
-      <div className="homepage__hd">Portfolio Summary</div>
+      <h2 className="homepage__hd">Portfolio Summary</h2>
       <div className="portfolio-summaries">
         <PortfolioValueSummary />
         <PortfolioAssetsSummary />
       </div>
       <div className="homepage-row">
-        <div className="homepage__hd">My Assets</div>
+        <h2 className="homepage__hd">My Assets</h2>
         {logged && (
           <Link to="/add" className="navlink-item">
             <button className="home-add__btn">Add new</button>

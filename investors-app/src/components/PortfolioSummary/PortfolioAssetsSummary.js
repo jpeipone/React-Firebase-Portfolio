@@ -1,23 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../ContextData";
-import { ReadUserPorfolio } from "../Firestore/read/ReadUserPorfolio";
 import { Chart } from "react-google-charts";
 import "./PortfolioAssetsSummary.css";
 
 const PortfolioAssetsSummary = () => {
-  const {
-    readData,
-    setReadData,
-    userdata,
-    setUserdata,
-    logged,
-    setLogged,
-    UIDinvestor,
-    setUIDinvestor,
-    portfolioUser,
-    setPortfolioUser,
-  } = useContext(UserContext);
-
+  const { portfolioUser } = useContext(UserContext);
   const [assetsProfitablePercent, setAssetsProfitablePercent] = useState(0);
   const [assetsSummary, setAssetsSummary] = useState();
   const [pieData, setPieData] = useState([
@@ -56,7 +43,7 @@ const PortfolioAssetsSummary = () => {
   return (
     <div className="portfolio-assets-container">
       <div className="asset-column">
-        <div className="asset__hd">Assets in porfolio</div>
+        <div className="asset__hd">Assets in portfolio</div>
         <div className="total__assets">{assetsSummary?.AssetsSum}</div>
         <div className="asset__hd">Profitable assets</div>
 

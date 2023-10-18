@@ -125,6 +125,7 @@ nav ul li a:hover {
     content: "";
   }
   .logout-item {
-    font-size: 16px;
+    font-size: 14px;
+    margin-right: 1rem;
   }
 }

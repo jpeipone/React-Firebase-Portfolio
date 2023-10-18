@@ -72,32 +72,36 @@ const PortfolioValueSummary = () => {
               <div className="value__hd">Total invested</div>
 
               <div className="portfolio__invested">
-                {portfolioData?.TotalCost}$
+                {parseFloat(portfolioData?.TotalCost).toFixed(2)}$
               </div>
             </div>
           </div>
-
-          <div className="value__hd">Total returns</div>
-          <div className="portfolio__profit">
-            {Number(
-              parseFloat(
-                (portfolioData?.TotalValue - portfolioData?.TotalCost).toFixed(
-                  2
-                )
-              )
-            )}
-            $
-          </div>
-
-          <div className="value__hd">Total ROI</div>
-          <div
-            className={
-              totalROI > 0
-                ? "porfolio__ROI__positive"
-                : "portfolio__ROI__negative"
-            }
-          >
-            {totalROI}%
+          <div className="porfolio-row">
+            <div className="porfolio-column">
+              <div className="value__hd">Total returns</div>
+              <div className="portfolio__profit">
+                {Number(
+                  parseFloat(
+                    (
+                      portfolioData?.TotalValue - portfolioData?.TotalCost
+                    ).toFixed(2)
+                  )
+                )}
+                $
+              </div>
+            </div>
+            <div className="porfolio-column">
+              <div className="value__hd">Total ROI</div>
+              <div
+                className={
+                  totalROI > 0
+                    ? "portfolio__ROI__positive"
+                    : "portfolio__ROI__negative"
+                }
+              >
+                {totalROI}%
+              </div>
+            </div>
           </div>
           {logged === true && (
             <button

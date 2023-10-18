@@ -46,8 +46,8 @@ const AddInvestmentForm = () => {
           <input
             placeholder="name"
             type="text"
-            value={name}
             className="input__investment"
+            maxLength={10}
             required
             onChange={(e) => setName(e.target.value)}
           />
@@ -55,37 +55,49 @@ const AddInvestmentForm = () => {
           <input
             placeholder="amount"
             type="number"
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setAmount(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Current price</label>
           <input
             placeholder="price"
             type="number"
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setPrice(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setPrice(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Purchase price</label>
           <input
             placeholder="purchase price"
             type="number"
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setCost(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setCost(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Cash invested</label>
           <input
             placeholder="cash invested"
             type="number"
-            step="0.1"
+            step="any"
             className="input__investment"
             required
-            onChange={(e) => setCashInvested(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const commaToSpot = e.target.value.replace(",", ".");
+              setCashInvested(parseFloat(commaToSpot));
+            }}
           />
           <label className="input__label">Date of purchase</label>
           <input

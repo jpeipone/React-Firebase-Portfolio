@@ -9,17 +9,27 @@ import { DeleteUserAccount } from "../../Authentication/DeleteUserAccount";
 
 const LoginPage = () => {
   //Context
-  const { logged, setLogged, UIDinvestor, setUIDinvestor } =
-    useContext(UserContext);
+  const {
+    logged,
+    setLogged,
+    UIDinvestor,
+    setUIDinvestor,
+    setUserdata,
+    setPortfolioUser,
+  } = useContext(UserContext);
 
   const [showRegister, setShowRegister] = useState(false);
 
   const handleLogOut = () => {
     SignOutUser(logged, setLogged);
+    setUserdata(null);
+    setPortfolioUser(null);
   };
 
   const handleDeleteUserAccount = () => {
     DeleteUserAccount(setLogged, UIDinvestor);
+    setUserdata(null);
+    setPortfolioUser(null);
     alert("Account was deleted from database");
   };
 

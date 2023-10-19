@@ -46,19 +46,21 @@ const PortfolioValueSummary = () => {
   return (
     <div>
       <div className="summary-container">
-        {portfolioData?.TotalValue - portfolioData?.TotalCost > 0 ? (
-          <img
-            className="yellowsun-img"
-            src="./images/YellowSun.svg"
-            alt="Sunny"
-          />
-        ) : (
-          <img
-            className="yellowsun-img"
-            src="./images/snowflakeBlue.svg"
-            alt="Snowflake"
-          />
-        )}
+        <div className="img-container">
+          {portfolioData?.TotalValue - portfolioData?.TotalCost > 0 ? (
+            <img
+              className="yellowsun-img"
+              src="./images/YellowSun.svg"
+              alt="Sunny"
+            />
+          ) : (
+            <img
+              className="yellowsun-img"
+              src="./images/snowflakeBlue.svg"
+              alt="Snowflake"
+            />
+          )}
+        </div>
         <div className="portfolio-values">
           <div className="porfolio-row">
             <div className="porfolio-column">

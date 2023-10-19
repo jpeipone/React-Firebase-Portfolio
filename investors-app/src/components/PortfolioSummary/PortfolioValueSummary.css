@@ -94,6 +94,19 @@
     margin-left: 0.5rem;
     height: 400px;
   }
+  .img-container {
+    background-color: #0b14e0;
+    border: 2px solid #0b14e0;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  .yellowsun-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .portfolio__totavalue {
     font-size: 1.3rem;
   }

@@ -27,6 +27,10 @@
   margin-left: 4rem;
 }
 
+.piechart-chart {
+  background-color: red;
+}
+
 @media only screen and (max-width: 1400px) {
   .portfolio-assets-container {
     width: 95%;

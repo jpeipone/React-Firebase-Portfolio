@@ -37,3 +37,16 @@ input {
   margin-top: 35px;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 350px) {
+  input {
+    width: 250px;
+  }
+  .btn__login {
+    width: 250px;
+  }
+
+  .btn__register {
+    width: 250px;
+  }
+}

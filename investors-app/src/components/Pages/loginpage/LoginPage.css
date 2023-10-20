@@ -52,3 +52,21 @@
     left: 10%;
   }
 }
+
+@media only screen and (max-width: 350px) {
+  .login-info-container {
+    left: 5%;
+  }
+
+  .create-account__text {
+    font-size: 14px;
+  }
+
+  .signOut-user__btn {
+    width: 250px;
+  }
+
+  .delete-account-btn {
+    width: 250px;
+  }
+}

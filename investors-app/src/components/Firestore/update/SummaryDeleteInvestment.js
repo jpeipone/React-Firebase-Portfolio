@@ -25,6 +25,8 @@ export const SummaryDeleteInvestment = async (
     positiveA = -1;
   } else if (value < cashInvested) {
     negativeA = -1;
+  } else {
+    negativeA = -1; //value-cashInvested = zero (negativly stored)
   }
 
   const summaryInvesments = {

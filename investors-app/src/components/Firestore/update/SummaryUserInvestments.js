@@ -22,7 +22,10 @@ export const SummaryUserInvestments = async (
   let negativeA = 0;
   if (value > cashInvested) {
     positiveA = 1;
-  } else if (value < cashInvested) {
+  } else if (value <= cashInvested) {
+    //negative or even(0) now negative asset
+    negativeA = 1;
+  } else if (value - cashInvested == 0) {
     negativeA = 1;
   } else {
     positiveA = 0;

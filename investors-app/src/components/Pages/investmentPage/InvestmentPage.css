@@ -1,12 +1,12 @@
 .container-data {
   background-color: white;
   margin-top: 3rem;
+  margin-bottom: 1rem;
   position: absolute;
   left: 10%;
   width: 1000px;
   border-radius: 25px;
   border: 2px solid lightgray;
-  margin-bottom: 1rem;
 }
 
 .name-return__row {

@@ -61,6 +61,7 @@ const PortfolioValueSummary = () => {
             />
           )}
         </div>
+
         <div className="portfolio-values">
           <div className="porfolio-row">
             <div className="porfolio-column balance">

@@ -88,7 +88,7 @@
   border: none;
   color: white;
   font-weight: bold;
-  margin: 10px;
+  margin: 20px;
 }
 
 .investment-delete__btn {
@@ -99,7 +99,7 @@
   border: none;
   color: white;
   font-weight: bold;
-  margin: 10px;
+  margin: 20px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -167,14 +167,17 @@
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 540px) {
   .container-data {
     width: 90%;
     left: 5%;
+    border: none;
   }
+
   .name-return__row {
     width: 90%;
     margin-left: 1rem;
+    margin-top: 0rem;
   }
 
   .name-hd__data {

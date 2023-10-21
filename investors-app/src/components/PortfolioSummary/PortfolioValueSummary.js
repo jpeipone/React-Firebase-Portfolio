@@ -110,7 +110,7 @@ const PortfolioValueSummary = () => {
               className="refresh-porfolio__btn"
               onClick={() => handleGetPortfolio(UIDinvestor)}
             >
-              &#8635; Refresh
+              &#8635;
             </button>
           )}
         </div>

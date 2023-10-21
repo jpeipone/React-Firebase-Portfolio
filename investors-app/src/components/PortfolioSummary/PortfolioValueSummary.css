@@ -65,13 +65,14 @@
 }
 
 .refresh-porfolio__btn {
-  width: 100px;
+  width: 25px;
   height: 25px;
   background-color: lightgray;
   border: none;
   border-radius: 25px;
-  color: black;
-  font-size: 13px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -104,16 +105,17 @@
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid lightgray;
+    margin-bottom: 10px;
   }
   .porfolio-column.balance {
     display: flex;
     flex-direction: column;
     border-bottom: none;
+    margin-bottom: 0px;
   }
 
   .value__hd {
-    width: 100px;
+    width: 115px;
   }
 
   .value__hd.balance {
@@ -151,14 +153,14 @@
   }
 
   .portfolio__invested {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: right;
     width: 180px;
   }
 
   .portfolio__profit {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 0em;
     text-align: right;
@@ -166,7 +168,7 @@
   }
 
   .portfolio__ROI__positive {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-align: right;
     width: 180px;

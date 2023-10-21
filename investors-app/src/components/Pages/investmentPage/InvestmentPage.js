@@ -42,7 +42,7 @@ const InvestmentPage = () => {
           <div className="name-hd__data">{findInvestment?.name} </div>
           <div
             className={
-              findInvestment?.value - findInvestment?.cashInvested >= 0
+              findInvestment?.value - findInvestment?.cashInvested > 0
                 ? "positive__return"
                 : "negative__return"
             }

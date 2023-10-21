@@ -63,8 +63,8 @@ const PortfolioValueSummary = () => {
         </div>
         <div className="portfolio-values">
           <div className="porfolio-row">
-            <div className="porfolio-column">
-              <div className="value__hd">Total value</div>
+            <div className="porfolio-column balance">
+              <div className="value__hd balance">Total balance</div>
 
               <div className="portfolio__totavalue">
                 {parseFloat(portfolioData?.TotalValue).toFixed(2)}$

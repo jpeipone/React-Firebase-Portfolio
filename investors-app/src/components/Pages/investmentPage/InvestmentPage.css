@@ -173,8 +173,8 @@
     left: 5%;
   }
   .name-return__row {
-    width: 80%;
-    margin-left: 0.5rem;
+    width: 90%;
+    margin-left: 1rem;
   }
 
   .name-hd__data {
@@ -207,6 +207,7 @@
     font-size: 1rem;
     width: 140px;
     font-weight: bold;
+    text-align: right;
   }
   .w-img {
     width: 150px;

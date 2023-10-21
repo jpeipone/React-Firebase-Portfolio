@@ -95,9 +95,33 @@
     margin-left: 0.5rem;
     height: 400px;
   }
+  .porfolio-row {
+    flex-direction: column;
+    width: 300px;
+  }
   .porfolio-column {
     margin-right: 0.5em;
-    width: 140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid lightgray;
+  }
+  .porfolio-column.balance {
+    display: flex;
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .value__hd {
+    width: 100px;
+  }
+
+  .value__hd.balance {
+    width: 90px;
+  }
+
+  .portfolio-values {
+    margin-top: 0em;
   }
   .img-container {
     width: 100%;
@@ -118,22 +142,40 @@
   }
 
   .portfolio__totavalue {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .portfolio__invested {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    width: 180px;
   }
 
   .portfolio__profit {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0em;
+    text-align: right;
+    width: 180px;
   }
 
   .portfolio__ROI__positive {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    width: 180px;
   }
 
   .portfolio__ROI__negative {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    width: 180px;
   }
 }

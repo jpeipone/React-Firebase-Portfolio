@@ -69,7 +69,7 @@ const TableAssets = () => {
                 <Link to={`/show/investment/${investment?.id}`}>
                   <div
                     className={
-                      investment?.value - investment?.cashInvested >= 0
+                      investment?.value - investment?.cashInvested > 0
                         ? "positive__profit"
                         : "negative__profit"
                     }

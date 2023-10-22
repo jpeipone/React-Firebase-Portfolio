@@ -12,7 +12,7 @@ const GuideToPortfolio = () => {
         <div className="guide-container">
           <div className="guide-parent">
             <h2 className="guide__hd"> Free Portfolio Tracker</h2>
-            <p>Create account to start tracking investments</p>
+            <p>Create an account and start tracking investments</p>
             <div className="guide__steps">
               <Link to="/login">
                 <button className="guide-register__btn">

@@ -13,7 +13,6 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <GuideToPortfolio />
-      <h2 className="homepage__hd">Portfolio Summary</h2>
       <div className="portfolio-summaries">
         <PortfolioValueSummary />
         <PortfolioAssetsSummary />

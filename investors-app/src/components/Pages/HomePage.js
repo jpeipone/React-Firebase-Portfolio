@@ -6,11 +6,13 @@ import "./HomePage.css";
 import TableAssets from "../TableAssets/TableAssets";
 import { useContext } from "react";
 import { UserContext } from "../../ContextData";
+import GuideToPortfolio from "../Guide/GuideToPortfolio";
 
 const HomePage = () => {
   const { logged } = useContext(UserContext);
   return (
     <div className="homepage">
+      <GuideToPortfolio />
       <h2 className="homepage__hd">Portfolio Summary</h2>
       <div className="portfolio-summaries">
         <PortfolioValueSummary />

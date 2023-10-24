@@ -28,7 +28,14 @@
   font-size: 13px;
 }
 
-@media only screen and (max-width: 1400px) {
+/* @media only screen and (max-width: 1400px) {
+  .portfolio-summaries {
+    display: flex;
+    flex-direction: column;
+  }
+} */
+
+@media only screen and (max-width: 720px) {
   .portfolio-summaries {
     display: flex;
     flex-direction: column;

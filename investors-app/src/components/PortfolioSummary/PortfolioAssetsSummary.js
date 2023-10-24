@@ -55,7 +55,7 @@ const PortfolioAssetsSummary = () => {
           data={pieData}
           options={options}
           width={"270px"}
-          height={"270px"}
+          height={"230px"}
         />
       </div>
     </div>

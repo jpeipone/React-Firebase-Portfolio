@@ -28,12 +28,16 @@
   font-size: 13px;
 }
 
-/* @media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1400px) {
   .portfolio-summaries {
-    display: flex;
-    flex-direction: column;
+    margin-left: 1.5rem;
   }
-} */
+}
+@media only screen and (max-width: 750px) {
+  .portfolio-summaries {
+    margin-left: 0rem;
+  }
+}
 
 @media only screen and (max-width: 720px) {
   .portfolio-summaries {

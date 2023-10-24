@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextData";
+import { Link } from "react-router-dom";
 
 import Login from "../../Authentication/Login";
 import "./LoginPage.css";
@@ -43,12 +44,20 @@ const LoginPage = () => {
         {showRegister === false ? (
           <div className="login__header">Welcome back!</div>
         ) : null}
-        {showRegister === false ? <Login /> : null}
+
+        {showRegister === false && logged === false ? <Login /> : null}
+
         {showRegister === false && logged === true ? (
-          <button className="signOut-user__btn" onClick={handleLogOut}>
-            log out
-          </button>
+          <div className="add-logout-container">
+            <Link to="/add" className="navlink-item">
+              <button className="logged-add__btn">add investment</button>
+            </Link>
+            <button className="signOut-user__btn" onClick={handleLogOut}>
+              log out
+            </button>
+          </div>
         ) : null}
+
         {showRegister === false ? (
           <div className="create-account__text" onClick={handleShowRegister}>
             New user? Create new account
@@ -68,7 +77,7 @@ const LoginPage = () => {
             className="delete-account-btn"
             onClick={handleDeleteUserAccount}
           >
-            Delete account
+            delete account
           </button>
         )}
       </div>

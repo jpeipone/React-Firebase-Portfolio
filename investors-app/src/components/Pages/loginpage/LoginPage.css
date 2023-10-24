@@ -22,9 +22,25 @@
   cursor: pointer;
 }
 
+.add-logout-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logged-add__btn {
+  background-color: green;
+  border: none;
+  margin-top: 40px;
+  color: white;
+  width: 306px;
+  height: 30px;
+  font-weight: bold;
+}
+
 .signOut-user__btn {
   background-color: #0b14e0;
   border: none;
+  margin-top: 40px;
   color: white;
   width: 306px;
   height: 30px;
@@ -35,7 +51,7 @@
   background-color: red;
   color: white;
   border: none;
-  margin-top: 40px;
+  margin-top: 130px;
   width: 306px;
   height: 30px;
   font-weight: bold;
@@ -67,6 +83,9 @@
   }
 
   .delete-account-btn {
+    width: 250px;
+  }
+  .logged-add__btn {
     width: 250px;
   }
 }

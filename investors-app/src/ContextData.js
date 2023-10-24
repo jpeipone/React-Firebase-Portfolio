@@ -11,7 +11,7 @@ const ContextData = ({ children }) => {
       amount: 10,
       cost: 1,
       cashInvested: 42,
-      boughtDate: "11.10.2023",
+      boughtDate: "2023-10-11",
       value: 420,
     },
     {
@@ -21,7 +21,7 @@ const ContextData = ({ children }) => {
       amount: 4,
       cost: 25,
       cashInvested: 100,
-      boughtDate: "11.10.2023",
+      boughtDate: "2023-10-11",
       value: 800,
     },
   ]);

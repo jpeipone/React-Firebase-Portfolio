@@ -28,10 +28,17 @@ const LoginPage = () => {
   };
 
   const handleDeleteUserAccount = () => {
-    DeleteUserAccount(setLogged, UIDinvestor);
-    setUserdata(null);
-    setPortfolioUser(null);
-    alert("Account was deleted from database");
+    let deleteAccount = window.confirm(
+      "Are you sure you want to delete this account?"
+    );
+    if (deleteAccount === true) {
+      DeleteUserAccount(setLogged, UIDinvestor);
+      setUserdata(null);
+      setPortfolioUser(null);
+      alert("Account was deleted from database");
+    } else {
+      return;
+    }
   };
 
   const handleShowRegister = () => {

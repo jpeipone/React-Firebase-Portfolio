@@ -1,7 +1,7 @@
 .portfolio-summaries {
   display: flex;
   margin-top: 10px;
-  width: 100%;
+  width: 95%;
 }
 
 .homepage-row {
@@ -35,6 +35,7 @@
 }
 @media only screen and (max-width: 750px) {
   .portfolio-summaries {
+    width: 100%;
     margin-left: 0rem;
   }
 }

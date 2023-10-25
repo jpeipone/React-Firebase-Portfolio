@@ -79,7 +79,7 @@
 
 @media only screen and (max-width: 1400px) {
   .summary-container {
-    width: 95%;
+    width: 340px;
   }
   .yellowsun-img {
     height: 150px;
@@ -173,6 +173,11 @@
     font-weight: bold;
     text-align: right;
     width: 180px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .summary-container {
+    width: 95%;
   }
 }
 

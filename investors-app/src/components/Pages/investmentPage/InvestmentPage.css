@@ -1,54 +1,54 @@
 .container-data {
   background-color: white;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  position: absolute;
-  left: 10%;
-  width: 1000px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  max-width: 700px;
   border-radius: 25px;
-  border: 2px solid lightgray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .name-return__row {
-  margin: 25px;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
-  width: 900px;
-  border-bottom: 2px solid lightgray;
+  justify-content: space-evenly;
 }
 
 .name-hd__data {
-  width: 200px;
   font-size: 1.8rem;
   font-weight: bold;
   margin-top: 2rem;
-  margin-left: 3rem;
 }
 
 .positive__return {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2rem;
-  margin-left: 3rem;
+
   color: green;
 }
 .negative__return {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2rem;
-  margin-left: 3rem;
+
   color: red;
 }
 
 .roi__return {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2rem;
-  margin-left: 3rem;
 }
 
 .image-data-container {
   display: flex;
+  flex-direction: column;
 }
 
 .image-investment {
@@ -56,13 +56,14 @@
 }
 
 .w-img {
-  width: 300px;
-  margin-right: 100px;
-  margin-left: 50px;
+  width: 200px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .data-colum {
-  width: 400px;
+  margin-right: 10px;
 }
 .investment-wrapper {
   display: flex;
@@ -70,7 +71,7 @@
 }
 
 .investment__label {
-  width: 400px;
+  width: 280px;
   font-size: 1rem;
 }
 
@@ -78,15 +79,16 @@
   font-size: 1.2rem;
   width: 200px;
   font-weight: bold;
+  text-align: right;
 }
 
 .investment-edit__btn {
   width: 70px;
   height: 40px;
-  background-color: #0b14e0;
+  background-color: lightgray;
   border-radius: 25px;
   border: none;
-  color: white;
+  color: black;
   font-weight: bold;
   margin: 20px;
 }
@@ -94,96 +96,55 @@
 .investment-delete__btn {
   width: 70px;
   height: 40px;
-  background-color: red;
+  background-color: lightgrey;
   border-radius: 25px;
   border: none;
-  color: white;
+  color: black;
   font-weight: bold;
   margin: 20px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .container-data {
-    width: 750px;
-    margin-top: 1rem;
+  .investment__label {
+    width: 200px;
   }
   .name-return__row {
-    width: 600px;
-  }
-  .w-img {
-    width: 150px;
-    margin-right: 40px;
-    margin-left: 50px;
-  }
-
-  .data-colum {
-    margin-left: 5px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .container-data {
-    width: 90%;
-    left: 5%;
-  }
-  .name-return__row {
-    width: 400px;
+    max-width: 500px;
     margin: 0.3rem;
-    margin-left: 2rem;
   }
   .name-hd__data {
     font-size: 1.5rem;
-    width: 120px;
+
     font-weight: bold;
-    margin-left: 1rem;
   }
 
   .positive__return {
     font-size: 1.5rem;
-
-    margin-left: 2rem;
   }
   .negative__return {
     font-size: 1.5rem;
-
-    margin-left: 1rem;
   }
 
   .roi__return {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 2rem;
-    margin-left: 3rem;
   }
   .image-data-container {
     flex-direction: column;
   }
-  .data-colum {
-    margin-left: 10%;
-  }
+
   .w-img {
     width: 150px;
-    margin-left: 90px;
   }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 740px) {
   .container-data {
-    width: 90%;
-    left: 5%;
     border: none;
   }
 
   .name-return__row {
-    width: 90%;
-    margin-left: 1rem;
     margin-top: 0rem;
-  }
-
-  .name-hd__data {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-left: 1rem;
   }
 
   .positive__return {
@@ -198,8 +159,6 @@
   }
   .roi__return {
     font-size: 1rem;
-    font-weight: normal;
-    margin-left: 1rem;
   }
   .investment__label {
     width: 165px;
@@ -214,10 +173,5 @@
   }
   .w-img {
     width: 150px;
-    margin-left: 90px;
-  }
-  .data-colum {
-    margin-left: 15px;
-    width: 90%;
   }
 }

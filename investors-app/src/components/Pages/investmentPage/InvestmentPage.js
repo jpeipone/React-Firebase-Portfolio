@@ -40,35 +40,8 @@ const InvestmentPage = () => {
       <div className="container-data">
         <div className="name-return__row">
           <div className="name-hd__data">{findInvestment?.name} </div>
-          <div
-            className={
-              findInvestment?.value - findInvestment?.cashInvested > 0
-                ? "positive__return"
-                : "negative__return"
-            }
-          >
-            {Number(
-              parseFloat(
-                (findInvestment?.value - findInvestment?.cashInvested).toFixed(
-                  2
-                )
-              )
-            )}
-            $
-          </div>
-          <div className="roi__return">
-            {Number(
-              parseFloat(
-                (
-                  ((findInvestment?.value - findInvestment?.cashInvested) /
-                    findInvestment?.cashInvested) *
-                  100
-                ).toFixed(2)
-              )
-            )}
-            %
-          </div>
         </div>
+
         <div className="image-data-container">
           <div className="image-investment">
             {findInvestment?.value - findInvestment?.cashInvested > 0 ? (
@@ -81,7 +54,44 @@ const InvestmentPage = () => {
               />
             )}
           </div>
+          <div className="name-return__row">
+            <div className="roi__return">
+              {Number(
+                parseFloat(
+                  (
+                    ((findInvestment?.value - findInvestment?.cashInvested) /
+                      findInvestment?.cashInvested) *
+                    100
+                  ).toFixed(2)
+                )
+              )}
+              %
+            </div>
+          </div>
           <div className="data-colum">
+            <div className="investment-wrapper">
+              <label className="investment__label">Return:</label>
+              <div className="investment__data">
+                <div
+                  className={
+                    findInvestment?.value - findInvestment?.cashInvested > 0
+                      ? "positive__return"
+                      : "negative__return"
+                  }
+                >
+                  {Number(
+                    parseFloat(
+                      (
+                        findInvestment?.value - findInvestment?.cashInvested
+                      ).toFixed(2)
+                    )
+                  )}
+                  $
+                </div>
+              </div>
+            </div>
+
+            {/*  return and value */}
             <div className="investment-wrapper">
               <label className="investment__label">Value:</label>
               <div className="investment__data">{findInvestment?.value}$</div>
@@ -106,7 +116,7 @@ const InvestmentPage = () => {
               <div className="investment__data">{findInvestment?.cost}$</div>
             </div>
             <div className="investment-wrapper">
-              <label className="investment__label">Date of purchase:</label>
+              <label className="investment__label">Date YY/MM/D:</label>
 
               <div className="investment__data">
                 {findInvestment?.boughtDate}
@@ -135,6 +145,7 @@ const InvestmentPage = () => {
           </div>
         </div>
       </div>
+      <br />
     </div>
   );
 };

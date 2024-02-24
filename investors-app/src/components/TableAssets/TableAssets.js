@@ -32,7 +32,7 @@ const TableAssets = () => {
   };
 
   return (
-    <div>
+    <div className="table-investments-container">
       <div className="table-assets-container">
         <div className="asset-row">
           <div className="asset__hd">name</div>

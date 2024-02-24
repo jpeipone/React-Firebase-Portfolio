@@ -1,19 +1,22 @@
 .portfolio-summaries {
   display: flex;
+  flex-direction: row;
   margin-top: 10px;
-  width: 95%;
+  /*  width: 95%; */
+  justify-content: center;
 }
 
 .homepage-row {
+  margin-top: 3rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  /*  margin-left: 10%; */
 }
 
 .homepage__hd {
-  font-size: 1.5rem;
+  /*  font-size: 1.5rem; */
   font-weight: bold;
-  margin-left: 1.5rem;
-  margin-top: 1rem;
 }
 
 .home-add__btn {
@@ -26,6 +29,7 @@
   border-radius: 25px;
   font-weight: bold;
   font-size: 13px;
+  margin-right: 10px;
 }
 
 @media only screen and (max-width: 1400px) {

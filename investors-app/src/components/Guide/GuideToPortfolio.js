@@ -19,9 +19,6 @@ const GuideToPortfolio = () => {
                   register {">"} log in
                 </button>
               </Link>
-              <p>
-                {">"} manage {">"} view{" "}
-              </p>
             </div>
           </div>
         </div>

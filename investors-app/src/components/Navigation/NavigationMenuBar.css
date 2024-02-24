@@ -4,8 +4,7 @@ nav {
   background-color: white;
   align-items: center;
 
-  border-top: 3px solid lightgray;
-  border-bottom: 3px solid lightgray;
+  border-bottom: solid lightgray 1.5px;
   height: 55px;
 }
 
@@ -53,8 +52,8 @@ nav ul li a:hover {
 
 .burger {
   background-color: black;
-  width: 2.2rem;
-  height: 0.3rem;
+  width: 2rem;
+  height: 0.2rem;
 }
 
 @media only screen and (max-width: 690px) {
@@ -75,13 +74,13 @@ nav ul li a:hover {
     z-index: 10;
     flex-flow: column nowrap;
     width: 2.2rem;
-    height: 2rem;
+    height: 1.8rem;
     margin-right: 2rem;
     cursor: pointer;
   }
 
   .hamburger-links {
-    background-color: beige;
+    background-color: #f9f9f9;
     color: black;
     width: 100%;
     display: flex;
@@ -106,21 +105,21 @@ nav ul li a:hover {
     position: relative;
     width: 30px;
     height: 30px;
-    margin-right: 0.5rem;
+    margin-right: 1.5rem;
     cursor: pointer;
   }
   .hamburger-x:after {
     position: absolute;
-    height: 30px;
-    border-left: 4px solid black;
+    height: 25px;
+    border-left: 3px solid black;
     transform: rotate(45deg);
     content: "";
   }
 
   .hamburger-x:before {
     position: absolute;
-    height: 30px;
-    border-left: 4px solid black;
+    height: 25px;
+    border-left: 3px solid black;
     transform: rotate(-45deg);
     content: "";
   }
